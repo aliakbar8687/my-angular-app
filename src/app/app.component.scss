@@ -1,0 +1,52 @@
+// Global app styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Container classes
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 15px;
+}
+/* src/app/app.component.scss */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  
+  &.dashboard-mode {
+    // Full screen dashboard without navbar/footer
+    min-height: 100vh;
+    padding: 0;
+  }
+}
+
+// Ensure dashboard takes full viewport when in dashboard mode
+:host {
+  display: block;
+  min-height: 100vh;
+}

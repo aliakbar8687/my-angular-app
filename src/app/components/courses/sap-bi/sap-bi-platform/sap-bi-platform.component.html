@@ -1,0 +1,42 @@
+<section class="bi-poster-section">
+  <div class="bi-poster-container">
+    <div class="image-column">
+      <div class="image-box" *ngFor="let img of imageData">
+        <img [src]="img.url" alt="BI Training Image" />
+        <div class="image-overlay">
+          <h4>{{ img.title }}</h4>
+          <p>{{ img.caption }}</p>
+        </div>
+        <div class="corner-caption">{{ img.cornerNote }}</div>
+      </div>
+    </div>
+
+    <div class="content-column">
+      <h2>SAP BI Platform Training – Syvaxia</h2>
+
+      <p>
+        The SAP Business Intelligence (BI) Platform empowers enterprises to harness their data for strategic growth.
+        With a scalable infrastructure, it supports high-performance analytics and informed decision-making.
+      </p>
+
+      <p>
+        Syvaxia offers an intensive BI training path that builds your proficiency across data modeling, report building,
+        and enterprise-level analysis tools.
+      </p>
+
+      <h3>Career Outcomes</h3>
+      <ul>
+        <li><strong>Corporate:</strong> BI Analyst, Data Visualizer, SAP Consultant</li>
+        <li><strong>Freelance:</strong> Data Analytics Specialist</li>
+        <li><strong>Trainer:</strong> Lead BI Workshops & Courses</li>
+      </ul>
+
+      <h3>Training Modules</h3>
+      <ul class="training-list">
+        <li *ngFor="let module of trainingModules">{{ module }}</li>
+      </ul>
+
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+<section class="sap-hana-section">
+  <div class="container">
+    <!-- Left Side Images -->
+    <div class="image-grid">
+      <div class="image-card" *ngFor="let image of imageCards">
+        <img [src]="image.src" [alt]="image.alt" />
+        <div class="overlay-content">
+          <h4>{{ image.title }}</h4>
+          <p>{{ image.description }}</p>
+        </div>
+        <span class="corner-label">{{ image.corner }}</span>
+      </div>
+    </div>
+
+    <!-- Right Side Content -->
+    <div class="content-side">
+      <div class="intro">
+        <h2>Master SAP HANA with Syvaxia</h2>
+        <p>SAP HANA is the next-generation in-memory database powering intelligent enterprises. Our expert-led training helps you gain real-world SAP HANA skills and prepare for global certifications.</p>
+      </div>
+
+      <div class="module-section">
+        <h3>Course Modules</h3>
+        <ul class="module-list">
+          <li *ngFor="let module of modules">✅ {{ module }}</li>
+        </ul>
+      </div>
+
+      <div class="benefit-section">
+        <h3>Why Choose Syvaxia for SAP HANA?</h3>
+        <div class="benefits-grid">
+          <div class="benefit-card" *ngFor="let benefit of benefits">
+            <p>✔️ {{ benefit }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

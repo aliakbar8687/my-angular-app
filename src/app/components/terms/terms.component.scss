@@ -1,0 +1,77 @@
+.terms {
+  font-family: 'Poppins', sans-serif;
+  padding: 4rem 1rem;
+  background: #fefefe;
+  color: #222;
+margin-top: 70px;
+  .container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 3rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #0057b8;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #555;
+  }
+
+  .term-section {
+    margin-bottom: 2.2rem;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    a {
+      color: #0057b8;
+      text-decoration: underline;
+
+      &:hover {
+        color: #003d82;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .term-section h2 {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 1.5rem;
+    }
+
+    .intro,
+    .term-section p {
+      font-size: 0.95rem;
+    }
+  }
+}

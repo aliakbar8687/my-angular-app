@@ -1,0 +1,622 @@
+// Variables
+$primary-color: #0f62fe;
+$secondary-color: #f4f4f4;
+$accent-color: #ff6b35;
+$text-dark: #1a1a1a;
+$text-light: #666;
+$white: #ffffff;
+$shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
+$shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.2);
+$border-radius: 12px;
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin gradient-overlay($direction: to bottom, $color1: rgba(0, 0, 0, 0.6), $color2: rgba(0, 0, 0, 0.3)) {
+  background: linear-gradient($direction, $color1, $color2);
+}
+
+@mixin responsive-text($mobile: 1rem, $tablet: 1.2rem, $desktop: 1.4rem) {
+  font-size: $mobile;
+  
+  @media (min-width: 768px) {
+    font-size: $tablet;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: $desktop;
+  }
+}
+
+// Main Container
+.event-gallery {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  overflow: hidden;
+margin-top: 120px;
+  // Hero Section
+  .hero-banner {
+    position: relative;
+    height: 40vh;
+    min-height: 300px;
+    @include flex-center;
+    background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 10%) 100%);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200') center/cover;
+      opacity: 0.2;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: $white;
+      max-width: 800px;
+      padding: 0 2rem;
+
+      .main-title {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: slideInUp 1s ease-out;
+      }
+
+      .hero-subtitle {
+        @include responsive-text(1.1rem, 1.3rem, 1.5rem);
+        opacity: 0.9;
+        font-weight: 300;
+        line-height: 1.6;
+        animation: slideInUp 1s ease-out 0.2s both;
+      }
+    }
+  }
+
+  // Main Content Wrapper
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+    }
+  }
+
+  // Left Content Panel
+  .content-panel {
+    .content-block {
+      background: $white;
+      border-radius: $border-radius;
+      padding: 2rem;
+      box-shadow: $shadow-medium;
+      position: sticky;
+      top: 2rem;
+
+      .content-header {
+        margin-bottom: 2rem;
+
+        .content-tag {
+          display: inline-block;
+          background: lighten($primary-color, 40%);
+          color: $primary-color;
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          font-size: 0.9rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+
+        .content-title {
+          font-size: clamp(1.8rem, 4vw, 2.5rem);
+          color: $text-dark;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+      }
+
+      .content-body {
+        .highlight-card {
+          background: lighten($secondary-color, 2%);
+          border-radius: $border-radius;
+          padding: 1.5rem;
+          margin-bottom: 2rem;
+          border-left: 4px solid $primary-color;
+          transition: $transition;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: $shadow-light;
+          }
+
+          .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+          }
+
+          .card-content {
+            h3 {
+              color: $text-dark;
+              font-size: 1.3rem;
+              font-weight: 600;
+              margin-bottom: 0.8rem;
+            }
+
+            p {
+              color: $text-light;
+              line-height: 1.6;
+              margin-bottom: 1rem;
+            }
+
+            .feature-list {
+              list-style: none;
+              padding: 0;
+
+              li {
+                position: relative;
+                padding-left: 1.5rem;
+                margin-bottom: 0.5rem;
+                color: $text-light;
+
+                &::before {
+                  content: '✓';
+                  position: absolute;
+                  left: 0;
+                  color: $primary-color;
+                  font-weight: bold;
+                }
+              }
+            }
+
+            .stats-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 1rem;
+              margin-top: 1rem;
+
+              .stat-item {
+                text-align: center;
+                padding: 1rem;
+                background: $white;
+                border-radius: 8px;
+
+                .stat-number {
+                  display: block;
+                  font-size: 1.8rem;
+                  font-weight: 700;
+                  color: $primary-color;
+                }
+
+                .stat-label {
+                  font-size: 0.9rem;
+                  color: $text-light;
+                }
+              }
+            }
+
+            .action-buttons {
+              display: flex;
+              gap: 1rem;
+              margin-top: 1rem;
+
+              .btn-primary, .btn-secondary {
+                padding: 0.8rem 1.5rem;
+                border: none;
+                border-radius: 6px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: $transition;
+              }
+
+              .btn-primary {
+                background: $primary-color;
+                color: $white;
+
+                &:hover {
+                  background: darken($primary-color, 10%);
+                  transform: translateY(-1px);
+                }
+              }
+
+              .btn-secondary {
+                background: transparent;
+                color: $primary-color;
+                border: 2px solid $primary-color;
+
+                &:hover {
+                  background: $primary-color;
+                  color: $white;
+                }
+              }
+            }
+          }
+        }
+
+        .testimonial-card {
+          background: linear-gradient(135deg, $primary-color, lighten($primary-color, 15%));
+          color: $white;
+          padding: 2rem;
+          border-radius: $border-radius;
+          text-align: center;
+
+          blockquote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-style: italic;
+            position: relative;
+
+            &::before {
+              content: '"';
+              font-size: 3rem;
+              position: absolute;
+              top: -1rem;
+              left: -1rem;
+              opacity: 0.3;
+            }
+          }
+
+          cite {
+            font-size: 0.9rem;
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+
+  // Right Gallery Panel
+  .gallery-panel {
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      .gallery-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        color: $text-dark;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .gallery-subtitle {
+        color: $text-light;
+        @include responsive-text(1rem, 1.1rem, 1.2rem);
+      }
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .image-card {
+        background: $white;
+        border-radius: $border-radius;
+        overflow: hidden;
+        box-shadow: $shadow-light;
+        transition: $transition;
+        opacity: 0;
+        transform: translateY(20px);
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: $shadow-heavy;
+        }
+
+        // Animation delays
+        &.delay-0 { animation: fadeInUp 0.6s ease 0.1s forwards; }
+        &.delay-1 { animation: fadeInUp 0.6s ease 0.2s forwards; }
+        &.delay-2 { animation: fadeInUp 0.6s ease 0.3s forwards; }
+        &.delay-3 { animation: fadeInUp 0.6s ease 0.4s forwards; }
+
+        // Layout variations
+        &.wide {
+          @media (min-width: 768px) {
+            grid-column: span 2;
+          }
+        }
+
+        &.tall {
+          .image-container {
+            height: 400px;
+          }
+        }
+
+        .image-container {
+          position: relative;
+          height: 250px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+          }
+
+          .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            @include gradient-overlay();
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            @include flex-center;
+
+            .overlay-content {
+              text-align: center;
+              color: $white;
+              padding: 1rem;
+
+              .image-title {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+              }
+
+              .image-description {
+                font-size: 0.9rem;
+                opacity: 0.9;
+                margin-bottom: 0.5rem;
+              }
+
+              .image-date {
+                font-size: 0.8rem;
+                opacity: 0.8;
+              }
+            }
+          }
+
+          &:hover {
+            img {
+              transform: scale(1.1);
+            }
+
+            .image-overlay {
+              opacity: 1;
+            }
+          }
+        }
+
+        .card-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem;
+
+          .card-category {
+            background: lighten($primary-color, 40%);
+            color: $primary-color;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+          }
+
+          .card-actions {
+            display: flex;
+            gap: 0.5rem;
+
+            .action-btn {
+              width: 32px;
+              height: 32px;
+              border: none;
+              background: lighten($secondary-color, 2%);
+              border-radius: 50%;
+              @include flex-center;
+              cursor: pointer;
+              transition: $transition;
+
+              &:hover {
+                background: $primary-color;
+                color: $white;
+                transform: scale(1.1);
+              }
+
+              .icon-eye::before { content: '👁'; }
+              .icon-share::before { content: '📤'; }
+            }
+          }
+        }
+      }
+    }
+
+    .gallery-footer {
+      text-align: center;
+
+      .load-more-btn {
+        background: $white;
+        border: 2px solid $primary-color;
+        color: $primary-color;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: $transition;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover {
+          background: $primary-color;
+          color: $white;
+          transform: translateY(-2px);
+        }
+
+        .icon-arrow-down::before {
+          content: '↓';
+        }
+      }
+    }
+  }
+
+  // Bottom CTA Section
+  .cta-section {
+    background: linear-gradient(135deg, $text-dark 0%, lighten($text-dark, 20%) 100%);
+    color: $white;
+    padding: 4rem 2rem;
+    text-align: center;
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+
+      h3 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      p {
+        @include responsive-text(1.1rem, 1.2rem, 1.3rem);
+        opacity: 0.9;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        .cta-btn {
+          padding: 1rem 2rem;
+          border: none;
+          border-radius: 50px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: $transition;
+          @include responsive-text(1rem, 1.1rem, 1.1rem);
+
+          &.primary {
+            background: $accent-color;
+            color: $white;
+
+            &:hover {
+              background: darken($accent-color, 10%);
+              transform: translateY(-2px);
+            }
+          }
+
+          &.secondary {
+            background: transparent;
+            color: $white;
+            border: 2px solid $white;
+
+            &:hover {
+              background: $white;
+              color: $text-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Animations
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    .content-wrapper {
+      padding: 2rem 1rem;
+    }
+
+    .content-panel .content-block {
+      padding: 1.5rem;
+      position: static;
+    }
+
+    .gallery-panel .image-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      .image-card {
+        &.wide {
+          grid-column: span 1;
+        }
+      }
+    }
+
+    .cta-section .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+
+      .cta-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-banner {
+      height: 30vh;
+      min-height: 250px;
+
+      .hero-content {
+        padding: 0 1rem;
+      }
+    }
+
+    .content-wrapper {
+      padding: 1.5rem 1rem;
+    }
+
+    .content-panel .content-block .content-body .highlight-card .card-content .action-buttons {
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+      }
+    }
+  }
+}

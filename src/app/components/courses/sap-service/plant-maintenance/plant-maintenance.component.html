@@ -1,0 +1,58 @@
+<section class="pm-section">
+  <div class="pm-container">
+    <div class="pm-grid">
+      <!-- Images Section -->
+      <div class="pm-images">
+        <div class="pm-image" style="background-image: url('https://img.freepik.com/premium-photo/sap-system-concept-sap-system-application-products-business-process-automation-management-software-concept-management-solutions_35148-12334.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+          <div class="overlay-text">
+            <h4>Equipment Uptime</h4>
+            <span class="corner-note">Boost ROI</span>
+          </div>
+        </div>
+        <div class="pm-image" style="background-image: url('https://img.freepik.com/premium-photo/erp-software-document-concept-document-management-concept-businessman-working-with-laptop-computer-with-icons-virtual-screen-office-background_10541-7540.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+          <div class="overlay-text">
+            <h4>Real-time Monitoring</h4>
+            <span class="corner-note">Stay Ahead</span>
+          </div>
+        </div>
+        <div class="pm-image" style="background-image: url('https://img.freepik.com/premium-photo/sap-system-concept-sap-system-application-products-business-process-automation-management-software-concept-management-solutions_35148-12355.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+          <div class="overlay-text">
+            <h4>Maintenance Insights</h4>
+            <span class="corner-note">Smarter Decisions</span>
+          </div>
+        </div>
+        <div class="pm-image" style="background-image: url('https://img.freepik.com/premium-photo/man-is-working-laptop-with-plants-man-using-laptop_1197721-152931.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+          <div class="overlay-text">
+            <h4>sap plant-maintenance</h4>
+            <span class="corner-note">Smarter maintenance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Section -->
+      <div class="pm-content">
+        <h2>SAP Plant Maintenance (PM)</h2>
+        <p>
+          The SAP PM module empowers businesses to maintain assets with efficiency and reliability.
+          Learn preventive, corrective, and predictive maintenance to minimize downtime and
+          maximize productivity.
+        </p>
+
+        <div class="accordion">
+          <div class="accordion-item" *ngFor="let course of courses">
+            <div class="accordion-header" (click)="toggle(course.code)">
+              <span>{{ course.code }} – {{ course.title }}</span>
+              <span class="icon">{{ expanded === course.code ? '-' : '+' }}</span>
+            </div>
+            <div class="accordion-body" *ngIf="expanded === course.code">
+              <ul *ngIf="course.details.length > 0">
+                <li *ngFor="let detail of course.details">{{ detail }}</li>
+              </ul>
+              <p *ngIf="course.details.length === 0">Details will be provided in the course materials.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

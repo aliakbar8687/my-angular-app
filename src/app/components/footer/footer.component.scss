@@ -1,0 +1,464 @@
+// Corporate WordPress Poster Layout - Clean & Professional SCSS
+
+// Marquee Container
+.marquee-container {
+  width: 100%;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+
+  @media (max-width: 768px) {
+    padding: 15px 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 0;
+  }
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+
+  .marquee-track {
+    display: inline-flex;
+    align-items: center;
+    animation: scroll 30s linear infinite;
+    gap: 60px;
+    padding: 0 30px;
+
+    @media (max-width: 768px) {
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    @media (max-width: 480px) {
+      gap: 30px;
+      padding: 0 15px;
+    }
+
+    span {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 14px;
+        letter-spacing: 0.3px;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+// Footer Section
+.footer {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: #f9fafb;
+  padding: 80px 0 0 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #3b82f6 50%, transparent 100%);
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 0 0 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 0 0 0;
+  }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+
+  @media (max-width: 1024px) {
+    padding: 0 30px;
+    gap: 40px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+    gap: 40px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 30px;
+  }
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 480px) {
+    gap: 15px;
+  }
+}
+
+.footer-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 10px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #3b82f6;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+}
+
+.footer-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d1d5db;
+  margin: 0;
+  font-weight: 400;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: #374151;
+  color: #d1d5db;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid #4b5563;
+
+  &:hover {
+    background: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
+}
+
+.footer-link {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 8px 0;
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: #ffffff;
+
+    &::before {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 16px;
+    color: #d1d5db;
+    line-height: 1.5;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+      gap: 10px;
+    }
+
+    i {
+      color: #3b82f6;
+      font-size: 18px;
+      min-width: 20px;
+      margin-top: 2px;
+
+      @media (max-width: 480px) {
+        font-size: 16px;
+        min-width: 18px;
+      }
+    }
+  }
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
+}
+
+.newsletter-input {
+  padding: 15px 18px;
+  border: 2px solid #4b5563;
+  border-radius: 8px;
+  background: #374151;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:focus {
+    border-color: #3b82f6;
+    background: #4b5563;
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+.newsletter-button {
+  padding: 15px 25px;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover:not(:disabled) {
+    background: #2563eb;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    background: #6b7280;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 15px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+}
+
+.subscription-message {
+  background: #10b981;
+  color: #ffffff;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+
+  @media (max-width: 480px) {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+.footer-bottom {
+  background: #111827;
+  padding: 30px 0;
+  margin-top: 60px;
+  border-top: 1px solid #374151;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 25px 0;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 0;
+    margin-top: 30px;
+  }
+
+  p {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 400;
+
+    @media (max-width: 480px) {
+      font-size: 13px;
+      padding: 0 20px;
+    }
+  }
+}
+
+// Additional responsive utilities
+@media (max-width: 320px) {
+  .footer-container {
+    padding: 0 15px;
+  }
+
+  .marquee-track {
+    gap: 20px;
+    padding: 0 10px;
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .footer-heading {
+    font-size: 15px;
+  }
+
+  .footer-text,
+  .footer-link,
+  .contact-info li {
+    font-size: 13px;
+  }
+}

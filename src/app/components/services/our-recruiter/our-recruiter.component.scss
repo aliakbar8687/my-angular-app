@@ -1,0 +1,562 @@
+// Recruiter Section - Corporate WordPress Style
+.recruiter-section {
+  margin-top: 100px;
+  padding: 80px 0;
+  background-color: #f8f9fa;
+  position: relative;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // Section Header
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0 0 16px 0;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: #64748b;
+      margin: 0;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  // Slider Wrapper
+  .slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  // Navigation Arrows
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background-color: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    color: #475569;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover:not(.disabled) {
+      background-color: #2563eb;
+      border-color: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    &.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    &-left {
+      left: -24px;
+    }
+
+    &-right {
+      right: -24px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  // Slider Track
+  .slider-track {
+    width: 100%;
+    overflow: hidden;
+    padding: 0 24px;
+  }
+
+  .slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+
+    &.transitioning {
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+
+  // Recruiter Slides
+  .recruiter-slide {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  // Recruiter Cards
+  .recruiter-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    height: 200px;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+
+    &:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .card-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+      }
+    }
+
+    .logo-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      min-height: 80px;
+
+      img {
+        max-width: 120px;
+        max-height: 60px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+      }
+    }
+
+    &:hover .logo-container img {
+      filter: grayscale(0%);
+    }
+
+    .recruiter-info {
+      position: relative;
+      text-align: center;
+
+      .recruiter-name {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin: 0 0 8px 0;
+        line-height: 1.4;
+      }
+
+      .visit-overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 0.875rem;
+        color: #2563eb;
+        font-weight: 500;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: all 0.3s ease;
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+
+    &:hover .visit-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Pagination Dots
+  .pagination-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 48px;
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #cbd5e1;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.active {
+        background-color: #2563eb;
+        transform: scale(1.2);
+      }
+
+      &:hover:not(.active) {
+        background-color: #94a3b8;
+      }
+    }
+  }
+
+  // Progress Bar
+  .progress-container {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+
+    .progress-bar {
+      width: 200px;
+      height: 4px;
+      background-color: #e2e8f0;
+      border-radius: 2px;
+      overflow: hidden;
+
+      .progress-fill {
+        height: 100%;
+        background-color: #2563eb;
+        border-radius: 2px;
+        transition: width 0.5s ease-in-out;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1280px) {
+  .recruiter-section {
+    .nav-arrow {
+      &-left {
+        left: -16px;
+      }
+      &-right {
+        right: -16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .recruiter-section {
+    padding: 60px 0;
+    margin-top: 80px;
+
+    .section-header {
+      margin-bottom: 48px;
+
+      .section-title {
+        font-size: 2.25rem;
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    .nav-arrow {
+      width: 44px;
+      height: 44px;
+
+      &-left {
+        left: -8px;
+      }
+      &-right {
+        right: -8px;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .recruiter-slide {
+      width: 280px;
+      margin-right: 20px;
+    }
+
+    .recruiter-card {
+      height: 180px;
+
+      .card-inner a {
+        padding: 20px;
+      }
+
+      .logo-container {
+        min-height: 70px;
+        margin-bottom: 12px;
+
+        img {
+          max-width: 100px;
+          max-height: 50px;
+        }
+      }
+
+      .recruiter-info .recruiter-name {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .recruiter-section {
+    padding: 50px 0;
+    margin-top: 60px;
+
+    .container {
+      padding: 0 16px;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.9375rem;
+      }
+    }
+
+    .slider-track {
+      padding: 0 16px;
+    }
+
+    .nav-arrow {
+      width: 40px;
+      height: 40px;
+
+      &-left {
+        left: -4px;
+      }
+      &-right {
+        right: -4px;
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .recruiter-slide {
+      width: 260px;
+      margin-right: 16px;
+    }
+
+    .recruiter-card {
+      height: 160px;
+
+      .card-inner a {
+        padding: 16px;
+      }
+
+      .logo-container {
+        min-height: 60px;
+        margin-bottom: 10px;
+
+        img {
+          max-width: 90px;
+          max-height: 45px;
+        }
+      }
+
+      .recruiter-info {
+        .recruiter-name {
+          font-size: 0.9375rem;
+        }
+
+        .visit-overlay {
+          font-size: 0.8125rem;
+        }
+      }
+    }
+
+    .pagination-dots {
+      margin-top: 36px;
+      gap: 8px;
+
+      .dot {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    .progress-container {
+      margin-top: 20px;
+
+      .progress-bar {
+        width: 150px;
+        height: 3px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .recruiter-section {
+    padding: 40px 0;
+    margin-top: 50px;
+
+    .container {
+      padding: 0 12px;
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.875rem;
+      }
+    }
+
+    .slider-track {
+      padding: 0 12px;
+    }
+
+    .nav-arrow {
+      width: 36px;
+      height: 36px;
+
+      &-left {
+        left: 0;
+      }
+      &-right {
+        right: 0;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .recruiter-slide {
+      width: 240px;
+      margin-right: 12px;
+    }
+
+    .recruiter-card {
+      height: 140px;
+
+      .card-inner a {
+        padding: 14px;
+      }
+
+      .logo-container {
+        min-height: 50px;
+        margin-bottom: 8px;
+
+        img {
+          max-width: 80px;
+          max-height: 40px;
+        }
+      }
+
+      .recruiter-info {
+        .recruiter-name {
+          font-size: 0.875rem;
+        }
+
+        .visit-overlay {
+          font-size: 0.75rem;
+          gap: 4px;
+
+          svg {
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+    }
+
+    .pagination-dots {
+      margin-top: 28px;
+      gap: 6px;
+
+      .dot {
+        width: 8px;
+        height: 8px;
+      }
+    }
+
+    .progress-container {
+      margin-top: 16px;
+
+      .progress-bar {
+        width: 120px;
+        height: 2px;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .recruiter-section {
+    .recruiter-slide {
+      width: 220px;
+    }
+
+    .recruiter-card {
+      height: 130px;
+
+      .card-inner a {
+        padding: 12px;
+      }
+
+      .logo-container {
+        min-height: 45px;
+
+        img {
+          max-width: 70px;
+          max-height: 35px;
+        }
+      }
+
+      .recruiter-info .recruiter-name {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+}

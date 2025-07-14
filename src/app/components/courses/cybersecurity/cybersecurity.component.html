@@ -1,0 +1,33 @@
+<section class="cybersecurity-section">
+  <div class="poster-container">
+    <!-- Left Side: Image Grid with Overlay Content -->
+    <div class="image-side">
+      <div class="image-box" *ngFor="let image of imageCards">
+        <img [src]="image.url" alt="Cybersecurity Training" />
+        <div class="overlay-content">
+          <h4>{{ image.heading }}</h4>
+          <p>{{ image.subtext }}</p>
+        </div>
+        <span class="corner-label">{{ image.cornerLabel }}</span>
+      </div>
+    </div>
+
+    <!-- Right Side: Content -->
+    <div class="content-side">
+      <div class="intro">
+        <h2>Cybersecurity Training & Internship by Syvaxia</h2>
+        <p>
+          Master threat detection, ethical hacking, and security architecture with Syvaxia's comprehensive program.
+        </p>
+      </div>
+
+      <div class="cyber-grid">
+        <div class="cyber-card" *ngFor="let item of highlights">
+          <div class="icon">{{ item.icon }}</div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

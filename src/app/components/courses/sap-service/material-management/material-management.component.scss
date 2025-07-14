@@ -1,0 +1,389 @@
+// Corporate WordPress Poster Layout - SCSS
+// Clean, elegant, and fully responsive design
+
+.mm-section {
+  margin-top: 100px;
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+
+  .mm-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+
+    // Images Section
+    .mm-images {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      .image-block {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(44, 62, 80, 0.1);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          display: block;
+        }
+
+        .overlay-text {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(to top, rgba(26, 35, 126, 0.9), transparent);
+          color: #ffffff;
+          padding: 30px 20px 20px;
+          font-size: 18px;
+          font-weight: 600;
+          text-align: center;
+        }
+
+        .corner-note {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background-color: #3498db;
+          color: #ffffff;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+
+    // Content Section
+    .mm-content {
+      padding: 20px 0;
+
+      .section-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #1a237e;
+        margin-bottom: 25px;
+        line-height: 1.2;
+        text-align: left;
+      }
+
+      .intro {
+        font-size: 16px;
+        color: #34495e;
+        margin-bottom: 20px;
+        text-align: justify;
+        line-height: 1.7;
+      }
+
+      .career-paths {
+        margin: 40px 0;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(44, 62, 80, 0.08);
+        border-left: 4px solid #3498db;
+
+        h3 {
+          font-size: 20px;
+          font-weight: 600;
+          color: #1a237e;
+          margin-bottom: 15px;
+          margin-top: 25px;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+
+        p {
+          font-size: 15px;
+          color: #5a6c7d;
+          line-height: 1.6;
+          margin-bottom: 15px;
+        }
+      }
+
+      // Accordion Styles
+      .accordion {
+        margin-top: 40px;
+
+        .accordion-item {
+          background-color: #ffffff;
+          border-radius: 8px;
+          margin-bottom: 12px;
+          box-shadow: 0 2px 10px rgba(44, 62, 80, 0.06);
+          overflow: hidden;
+
+          .accordion-header {
+            padding: 20px 25px;
+            background-color: #ecf0f1;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 1px solid #d5dbdb;
+
+            &:hover {
+              background-color: #d5dbdb;
+            }
+
+            .toggle-icon {
+              font-size: 20px;
+              font-weight: 700;
+              color: #3498db;
+              min-width: 25px;
+              text-align: center;
+            }
+          }
+
+          .accordion-body {
+            padding: 25px;
+            background-color: #ffffff;
+
+            ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+
+              li {
+                padding: 8px 0;
+                color: #5a6c7d;
+                position: relative;
+                padding-left: 20px;
+                font-size: 15px;
+
+                &:before {
+                  content: "▸";
+                  position: absolute;
+                  left: 0;
+                  color: #3498db;
+                  font-weight: 700;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Tablet Styles
+@media (max-width: 1024px) {
+  .mm-section {
+    padding: 40px 0;
+
+    .mm-container {
+      max-width: 100%;
+      padding: 0 30px;
+      gap: 40px;
+
+      .mm-content {
+        .section-title {
+          font-size: 32px;
+        }
+
+        .intro {
+          font-size: 15px;
+        }
+      }
+
+      .mm-images {
+        .image-block {
+          img {
+            height: 220px;
+          }
+
+          .overlay-text {
+            font-size: 16px;
+            padding: 25px 15px 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile Styles
+@media (max-width: 768px) {
+  .mm-section {
+    margin-top: 80px;
+    padding: 30px 0;
+
+    .mm-container {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 0 20px;
+
+      .mm-images {
+        order: 2;
+        gap: 15px;
+
+        .image-block {
+          img {
+            height: 200px;
+          }
+
+          .overlay-text {
+            font-size: 15px;
+            padding: 20px 15px 12px;
+          }
+
+          .corner-note {
+            top: 10px;
+            right: 10px;
+            padding: 6px 12px;
+            font-size: 11px;
+          }
+        }
+      }
+
+      .mm-content {
+        order: 1;
+        padding: 0;
+
+        .section-title {
+          font-size: 28px;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .intro {
+          font-size: 14px;
+          text-align: left;
+          margin-bottom: 18px;
+        }
+
+        .career-paths {
+          margin: 30px 0;
+          padding: 20px;
+
+          h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            margin-top: 20px;
+
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+
+          p {
+            font-size: 14px;
+            margin-bottom: 12px;
+          }
+        }
+
+        .accordion {
+          margin-top: 30px;
+
+          .accordion-item {
+            margin-bottom: 10px;
+
+            .accordion-header {
+              padding: 15px 20px;
+              font-size: 14px;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 10px;
+
+              .toggle-icon {
+                align-self: flex-end;
+                margin-top: -25px;
+              }
+            }
+
+            .accordion-body {
+              padding: 20px;
+
+              ul li {
+                font-size: 14px;
+                padding: 6px 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Small Mobile Styles
+@media (max-width: 480px) {
+  .mm-section {
+    margin-top: 70px;
+    padding: 20px 0;
+
+    .mm-container {
+      padding: 0 15px;
+      gap: 25px;
+
+      .mm-content {
+        .section-title {
+          font-size: 24px;
+        }
+
+        .career-paths {
+          padding: 15px;
+
+          h3 {
+            font-size: 16px;
+          }
+
+          p {
+            font-size: 13px;
+          }
+        }
+
+        .accordion {
+          .accordion-item {
+            .accordion-header {
+              padding: 12px 15px;
+              font-size: 13px;
+            }
+
+            .accordion-body {
+              padding: 15px;
+
+              ul li {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+
+      .mm-images {
+        .image-block {
+          img {
+            height: 180px;
+          }
+
+          .overlay-text {
+            font-size: 14px;
+            padding: 15px 12px 10px;
+          }
+        }
+      }
+    }
+  }
+}

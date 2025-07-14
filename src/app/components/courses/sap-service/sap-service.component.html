@@ -1,0 +1,31 @@
+<section class="sap-section">
+  <div class="container">
+    <div class="sap-wrapper">
+      <!-- Left Side: Image -->
+      <div class="sap-image">
+        <img src="https://img.freepik.com/free-photo/futuristic-technology-concept_23-2151908062.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="SAP Services">
+     
+      </div>
+
+      <!-- Right Side: Content -->
+      <div class="sap-content">
+        <div class="intro">
+          <h2>Enterprise SAP Services</h2>
+          <p>
+            At <strong>Syvaxia</strong>, we provide industry-grade SAP services—from implementation to certified training programs—helping enterprises transform digitally.
+          </p>
+        </div>
+
+        <div class="sap-grid">
+          <div class="sap-card" *ngFor="let service of sapServices">
+            <div class="icon">{{ service.icon }}</div>
+            <div class="text">
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

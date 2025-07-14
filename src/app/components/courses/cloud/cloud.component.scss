@@ -1,0 +1,294 @@
+// Corporate WordPress Poster Layout - Clean & Professional
+.cloud-section {
+  margin-top: 100px;
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+
+  .poster-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .poster-block {
+      display: flex;
+      align-items: center;
+      margin-bottom: 80px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      min-height: 400px;
+      transition: none;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .poster-image {
+        flex: 1;
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        .image-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(transparent, rgba(25, 42, 86, 0.9));
+          color: #ffffff;
+          padding: 30px 25px 25px;
+
+          h4 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          }
+
+          .corner-note {
+            font-size: 12px;
+            font-weight: 500;
+            color: #b8c5d1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+        }
+
+        &.reverse {
+          order: 2;
+        }
+      }
+
+      .poster-content {
+        flex: 1;
+        padding: 40px 45px;
+        background-color: #ffffff;
+
+        h3 {
+          font-size: 28px;
+          font-weight: 700;
+          color: #1a2332;
+          margin: 0 0 20px 0;
+          line-height: 1.3;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 1.7;
+          color: #4a5568;
+          margin: 0;
+          font-weight: 400;
+        }
+
+        &.reverse {
+          order: 1;
+          background-color: #f7f8fc;
+          border-right: 4px solid #2563eb;
+        }
+      }
+    }
+  }
+}
+
+// Tablet Responsiveness
+@media (max-width: 1024px) {
+  .cloud-section {
+    padding: 40px 0;
+
+    .poster-wrapper {
+      padding: 0 15px;
+
+      .poster-block {
+        margin-bottom: 60px;
+        min-height: 350px;
+
+        .poster-image {
+          height: 350px;
+
+          .image-overlay {
+            padding: 25px 20px 20px;
+
+            h4 {
+              font-size: 20px;
+            }
+          }
+        }
+
+        .poster-content {
+          padding: 35px 30px;
+
+          h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+          }
+
+          p {
+            font-size: 15px;
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile Responsiveness
+@media (max-width: 768px) {
+  .cloud-section {
+    margin-top: 100px;
+    padding: 30px 0;
+
+    .poster-wrapper {
+      padding: 0 12px;
+
+      .poster-block {
+        flex-direction: column;
+        margin-bottom: 40px;
+        min-height: auto;
+
+        .poster-image {
+          height: 280px;
+          order: 1 !important;
+
+          .image-overlay {
+            padding: 20px 18px 16px;
+
+            h4 {
+              font-size: 18px;
+              margin-bottom: 6px;
+            }
+
+            .corner-note {
+              font-size: 11px;
+            }
+          }
+
+          &.reverse {
+            order: 1 !important;
+          }
+        }
+
+        .poster-content {
+          order: 2 !important;
+          padding: 30px 25px;
+          background-color: #ffffff !important;
+          border-right: none !important;
+          border-top: 4px solid #2563eb;
+
+          h3 {
+            font-size: 22px;
+            margin-bottom: 14px;
+            text-align: center;
+          }
+
+          p {
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: center;
+          }
+
+          &.reverse {
+            order: 2 !important;
+            background-color: #ffffff !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Small Mobile Devices
+@media (max-width: 480px) {
+  .cloud-section {
+    .poster-wrapper {
+      padding: 0 10px;
+
+      .poster-block {
+        margin-bottom: 35px;
+        border-radius: 8px;
+
+        .poster-image {
+          height: 240px;
+
+          .image-overlay {
+            padding: 16px 15px 12px;
+
+            h4 {
+              font-size: 16px;
+            }
+
+            .corner-note {
+              font-size: 10px;
+            }
+          }
+        }
+
+        .poster-content {
+          padding: 25px 20px;
+
+          h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+          }
+
+          p {
+            font-size: 13px;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Extra Large Screens
+@media (min-width: 1400px) {
+  .cloud-section {
+    .poster-wrapper {
+      max-width: 1400px;
+
+      .poster-block {
+        .poster-image {
+          height: 450px;
+
+          .image-overlay {
+            padding: 35px 30px 28px;
+
+            h4 {
+              font-size: 24px;
+              margin-bottom: 10px;
+            }
+
+            .corner-note {
+              font-size: 13px;
+            }
+          }
+        }
+
+        .poster-content {
+          padding: 50px 55px;
+
+          h3 {
+            font-size: 32px;
+            margin-bottom: 24px;
+          }
+
+          p {
+            font-size: 17px;
+            line-height: 1.8;
+          }
+        }
+      }
+    }
+  }
+}

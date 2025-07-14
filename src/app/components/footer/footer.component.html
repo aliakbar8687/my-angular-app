@@ -1,0 +1,96 @@
+    <div class="marquee-container">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>🎯 100% Success Rate</span>
+      <span>💼 100% Placement Rate</span>
+      <span>📈 Above 40% Hike</span>
+      <span>🏆 Top Industry Trainers</span>
+      <span>📚 Hands-on Projects</span>
+      <span>💬 24/7 Mentor Support</span>
+      <span>🚀 SAP & Analytics Internship</span>
+
+      <!-- Duplicate for seamless scrolling -->
+      <span>🎯 100% Success Rate</span>
+      <span>💼 100% Placement Rate</span>
+      <span>📈 Above 40% Hike</span>
+      <span>🏆 Top Industry Trainers</span>
+      <span>📚 Hands-on Projects</span>
+      <span>💬 24/7 Mentor Support</span>
+      <span>🚀 SAP & Analytics Internship</span>
+    </div>
+  </div>
+</div>
+<footer class="footer" id="contact">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3 class="footer-heading">About Syvaxia</h3>
+      <p class="footer-text">Syvaxia Technology and Innovation Lab is dedicated to creating cutting-edge solutions for the digital age.</p>
+      <div class="social-links">
+<a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-facebook-f"></i>
+</a>
+<a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-twitter"></i>
+</a>
+<a href="https://www.linkedin.com/company/syvaxia-technology-and-innovation-lab-pvt-ltd" class="social-link" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-linkedin-in"></i>
+</a>
+<a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-instagram"></i>
+</a>
+
+      </div>
+    </div>
+
+<div class="footer-section">
+  <h3 class="footer-heading">Quick Links</h3>
+  <ul class="footer-links">
+    <li><a href="#home" class="footer-link">Home</a></li>
+    <li><a href="#services" class="footer-link">Services</a></li>
+    <li><a href="#courses" class="footer-link">Courses</a></li>
+    <li><a href="#training" class="footer-link">Training</a></li>
+    <li><a href="#partners" class="footer-link">Partners</a></li>
+    <li><a href="#news" class="footer-link">News</a></li>
+  </ul>
+</div>
+
+
+
+    <div class="footer-section">
+      <h3 class="footer-heading">Contact Us</h3>
+      <ul class="contact-info">
+        <li><i class="fas fa-map-marker-alt"></i> Sandeep Arcade, 5th Main Rd, Rajiv Gandhi Nagar, HSR Layout, Bengaluru, Karnataka 560102</li>
+        <li><i class="fas fa-phone"></i> +91 (80) 4977 4578</li>
+        <li><i class="fas fa-envelope"></i> info&#64;syvaxia.com</li>
+      </ul>
+    </div>
+
+<div class="footer-section">
+  <h3 class="footer-heading">Newsletter</h3>
+  <p class="footer-text">Subscribe to our newsletter for the latest updates.</p>
+
+  <form class="newsletter-form" (ngSubmit)="subscribe()" #newsletterForm="ngForm">
+    <input
+      type="email"
+      placeholder="Your Email"
+      class="newsletter-input"
+      name="email"
+      ngModel
+      required
+      email>
+    <button type="submit" class="newsletter-button" [disabled]="!newsletterForm.valid">
+      Subscribe
+    </button>
+  </form>
+
+  <p *ngIf="subscriptionSuccess" class="subscription-message">
+    You are successfully subscribed to Syvaxia's channel.
+  </p>
+</div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Syvaxia Technology and Innovation Lab. All rights reserved.</p>
+  </div>
+</footer>

@@ -1,0 +1,339 @@
+.wm-section {
+  padding: 3rem 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fdfdfd;
+  margin-top: 120px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .poster-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .poster-images {
+    flex: 1;
+    min-width: 250px;
+
+    .image-box {
+      position: relative;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+
+      .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 50, 100, 0.4);
+        color: #fff;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h3 {
+          font-size: 1.25rem;
+          font-weight: bold;
+          margin: 0;
+        }
+
+        .corner-text {
+          font-size: 0.85rem;
+          align-self: flex-end;
+          background: rgba(0, 0, 0, 0.3);
+          padding: 0.3rem 0.6rem;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+
+  .poster-content {
+    flex: 1;
+    min-width: 300px;
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #222;
+      position: relative;
+      margin-bottom: 1rem;
+
+      &::after {
+        content: '';
+        width: 60px;
+        height: 4px;
+        background: #007acc;
+        display: block;
+        margin-top: 8px;
+      }
+    }
+
+    .intro {
+      color: #333;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .accordion {
+      .accordion-item {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+
+        .accordion-header {
+          background: #f0f8ff;
+          padding: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: #e0effa;
+          }
+
+          .icon {
+            font-size: 1.4rem;
+          }
+        }
+
+        .accordion-body {
+          padding: 1rem 1.5rem;
+          background: #fff;
+
+          ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+
+            li {
+              margin-bottom: 0.5rem;
+              color: #222;
+            }
+          }
+
+          p {
+            font-style: italic;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+
+  // Tablet and smaller desktop screens
+  @media (max-width: 1024px) {
+    padding: 2.5rem 1rem;
+    margin-top: 110px;
+    
+    .container {
+      padding: 0 0.5rem;
+    }
+    
+    .poster-layout {
+      gap: 1.5rem;
+    }
+    
+    .poster-content {
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .intro {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // Mobile landscape and small tablets
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    margin-top: 100px;
+    
+    .poster-layout {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .poster-images,
+    .poster-content {
+      min-width: 100%;
+    }
+    
+    .poster-content {
+      .section-title {
+        font-size: 1.6rem;
+        text-align: center;
+        
+        &::after {
+          margin: 8px auto 0;
+        }
+      }
+      
+      .intro {
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .accordion {
+        .accordion-item {
+          .accordion-header {
+            padding: 0.8rem;
+            font-size: 0.95rem;
+            
+            .icon {
+              font-size: 1.2rem;
+            }
+          }
+          
+          .accordion-body {
+            padding: 1rem;
+            
+            ul {
+              padding-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Mobile portrait
+  @media (max-width: 480px) {
+    padding: 1.5rem 0.75rem;
+    margin-top: 100px;
+    
+    .container {
+      padding: 0 0.25rem;
+    }
+    
+    .poster-images {
+      .image-box {
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        
+        .image-overlay {
+          padding: 0.75rem;
+          
+          h3 {
+            font-size: 1.1rem;
+          }
+          
+          .corner-text {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+          }
+        }
+      }
+    }
+    
+    .poster-content {
+      .section-title {
+        font-size: 1.4rem;
+        
+        &::after {
+          width: 50px;
+          height: 3px;
+        }
+      }
+      
+      .intro {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      
+      .accordion {
+        .accordion-item {
+          .accordion-header {
+            padding: 0.7rem;
+            font-size: 0.9rem;
+            
+            .icon {
+              font-size: 1.1rem;
+            }
+          }
+          
+          .accordion-body {
+            padding: 0.8rem;
+            
+            ul {
+              padding-left: 0.8rem;
+              
+              li {
+                font-size: 0.9rem;
+                margin-bottom: 0.4rem;
+              }
+            }
+            
+            p {
+              font-size: 0.85rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Very small mobile screens
+  @media (max-width: 360px) {
+    padding: 1rem 0.5rem;
+    
+    .poster-content {
+      .section-title {
+        font-size: 1.25rem;
+      }
+      
+      .intro {
+        font-size: 0.9rem;
+      }
+      
+      .accordion {
+        .accordion-item {
+          .accordion-header {
+            padding: 0.6rem;
+            font-size: 0.85rem;
+          }
+          
+          .accordion-body {
+            padding: 0.7rem;
+            
+            ul li {
+              font-size: 0.85rem;
+            }
+            
+            p {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<section class="cloud-section">
+  <div class="poster-wrapper">
+
+    <div class="poster-block" *ngFor="let service of services; let i = index">
+<div class="poster-image" [ngClass]="{ 'reverse': i % 2 !== 0 }">
+  <img [src]="service.imageUrl" [alt]="service.title">
+  <div class="image-overlay">
+    <h4>{{ service.icon }} {{ service.title }}</h4>
+    <small class="corner-note">Syvaxia Cloud</small>
+  </div>
+</div>
+
+
+      <div class="poster-content" [ngClass]="{ 'reverse': i % 2 !== 0 }">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </div>
+    </div>
+
+  </div>
+</section>

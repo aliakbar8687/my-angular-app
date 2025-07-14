@@ -1,0 +1,49 @@
+<section class="accounting-section">
+  <div class="accounting-container">
+    <!-- Left Side: Images with overlays -->
+    <div class="image-column">
+      <div class="image-block">
+        <img src="https://img.freepik.com/free-photo/people-analyzing-checking-finance-graphs-office_23-2150377182.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="SAP Training">
+        <div class="image-overlay">
+          <h3>Expert Mentors</h3>
+          <p class="corner-note">Guided by industry leaders</p>
+        </div>
+      </div>
+
+      <!-- <div class="image-block">
+        <img src="https://img.freepik.com/premium-photo/business-performance-analysis_101984-34.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="Real Projects">
+        <div class="image-overlay">
+          <h3>Live Projects</h3>
+          <p class="corner-note">Hands-on SAP FICO cases</p>
+        </div>
+      </div> -->
+
+      <div class="image-block">
+        <img src="https://img.freepik.com/free-photo/financier-work_1098-15082.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="Certifications">
+        <div class="image-overlay">
+          <h3>Global Certification</h3>
+          <p class="corner-note">Industry-recognized</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Curriculum Content -->
+    <div class="content-column">
+      <h2 class="section-title">SAP Management Accounting Curriculum</h2>
+
+      <div class="accordion">
+        <div class="accordion-item" *ngFor="let topic of topics">
+          <div class="accordion-header" (click)="toggleExpand(topic.code)">
+            <span>{{ topic.code }} – {{ topic.title }}</span>
+            <span class="toggle-icon">{{ expanded === topic.code ? '-' : '+' }}</span>
+          </div>
+          <div class="accordion-body" *ngIf="expanded === topic.code">
+            <ul>
+              <li *ngFor="let point of topic.details">{{ point }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

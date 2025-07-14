@@ -1,0 +1,77 @@
+<section class="partners-section" id="partner">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">OUR HIRING PARTNERS</h2>
+      <p class="section-subtitle">
+        We are proud to be associated with top companies and industry leaders who trust our talent pool. Explore the organizations that regularly recruit from our programs.
+      </p>
+    </div>
+
+    <div class="partners-slider-container">
+      <div class="partners-slider">
+        <!-- First set of partners -->
+        <div class="partner-card" *ngFor="let partner of partners" [class.featured]="partner.featured">
+          <div class="partner-logo">
+            <img [src]="partner.logo" [alt]="partner.name" />
+          </div>
+          <div class="partner-info">
+            <h3 class="partner-name">{{ partner.name }}</h3>
+            <!-- <p class="partner-description">{{ partner.description }}</p> -->
+            <div class="partner-category">
+              <!-- <span class="category-tag">{{ partner.category }}</span> -->
+            </div>
+          </div>
+          <div class="partner-overlay">
+            <div class="overlay-content">
+              <h4>{{ partner.name }}</h4>
+              <p>{{ partner.fullDescription }}</p>
+              <a [href]="partner.website" target="_blank" class="partner-link">
+                Visit Website
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Duplicate set for seamless loop -->
+        <div class="partner-card" *ngFor="let partner of partners" [class.featured]="partner.featured">
+          <div class="partner-logo">
+            <img [src]="partner.logo" [alt]="partner.name" />
+          </div>
+          <div class="partner-info">
+            <h3 class="partner-name">{{ partner.name }}</h3>
+            <p class="partner-description">{{ partner.description }}</p>
+            <div class="partner-category">
+              <span class="category-tag">{{ partner.category }}</span>
+            </div>
+          </div>
+          <div class="partner-overlay">
+            <div class="overlay-content">
+              <h4>{{ partner.name }}</h4>
+              <p>{{ partner.fullDescription }}</p>
+              <a [href]="partner.website" target="_blank" class="partner-link">
+                Visit Website
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="partnership-stats">
+      <div class="stat-item">
+        <div class="stat-number">{{ getPartnerCount() }}</div>
+        <div class="stat-label">Total Global Partners</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">{{ getCountryCount() }}</div>
+        <div class="stat-label">Countries</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">{{ getYearsOfPartnership() }}</div>
+        <div class="stat-label">Years of Partnership</div>
+      </div>
+    </div>
+  </div>
+</section>

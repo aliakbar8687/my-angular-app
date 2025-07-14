@@ -1,0 +1,33 @@
+<section class="ai-ml-section">
+  <div class="ai-ml-wrapper">
+    <!-- Images Side -->
+    <div class="image-gallery">
+      <div class="image-card" *ngFor="let image of images">
+        <img [src]="image.url" [alt]="image" />
+        <div class="image-overlay">
+          <h3>{{ image.title }}</h3>
+          <p>{{ image.caption }}</p>
+        </div>
+        <span class="corner-text">{{ image.cornerNote }}</span>
+      </div>
+    </div>
+
+    <!-- Content Side -->
+    <div class="content-section">
+      <div class="intro">
+        <h2>AI & Machine Learning Services</h2>
+        <p>Syvaxia’s AI/ML Lab delivers intelligent automation, predictive analytics, and tailored model solutions for businesses and institutions.</p>
+      </div>
+
+      <div class="services">
+        <div class="service-card" *ngFor="let service of services">
+          <div class="icon">{{ service.icon }}</div>
+          <h4>{{ service.title }}</h4>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>

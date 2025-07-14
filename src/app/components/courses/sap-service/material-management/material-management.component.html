@@ -1,0 +1,72 @@
+<section class="mm-section">
+  <div class="mm-container">
+<div class="mm-images">
+  <div class="image-block">
+    <img src="https://img.freepik.com/premium-photo/wide-angle-photography-companys-industrial-division-collaborates-with-stakeholders-increase-resiliency-sustainability-supply-chain-run-by-expert-american-male-engineers_1339901-6038.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="SAP Image 1">
+    <div class="overlay-text">Real-Time Inventory Control</div>
+    <div class="corner-note">Procurement</div>
+  </div>
+  <div class="image-block">
+    <img src="https://img.freepik.com/free-photo/man-working-printing-house-with-paper-paints_1303-26609.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="SAP Image 2">
+    <div class="overlay-text">Warehouse Automation</div>
+    <div class="corner-note">Efficiency</div>
+  </div>
+  <div class="image-block">
+    <img src="https://img.freepik.com/premium-photo/smiling-caucasian-bearded-supervisor-tie-suit-looking-pile-sheets-writing-down-inventory_232070-3659.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="SAP Image 3">
+    <div class="overlay-text">SAP Certified Career</div>
+    <div class="corner-note">Growth</div>
+  </div>
+  <div class="image-block">
+    <img src="https://img.freepik.com/premium-photo/file-manager-used-browse-folders-computer-exploring-directories-hard-drive_1313853-64794.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="SAP Image 4">
+    <div class="overlay-text">Material Requirement Planning</div>
+    <div class="corner-note">Optimization</div>
+  </div>
+  <div class="image-block">
+    <img src="https://img.freepik.com/free-photo/scene-with-business-person-working-futuristic-office-job_23-2151003691.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="SAP Image 5">
+    <div class="overlay-text">Vendor Evaluation System</div>
+    <div class="corner-note">Quality</div>
+  </div>
+  <div class="image-block">
+    <img src="https://img.freepik.com/premium-photo/photo-realistic-erp-system-analytics-icon-gray-background-ideal-design-system-analytics_980716-302865.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="SAP Image 6">
+    <div class="overlay-text">Automated Purchase Requisition</div>
+    <div class="corner-note">Workflow</div>
+  </div>
+</div>
+
+
+    <div class="mm-content">
+      <h2 class="section-title">SAP Material Management (MM)</h2>
+      <p class="intro">
+        Today, most successful manufacturing companies use SAP ERP to streamline their processes—from Procurement Handling to Inventory Management. With the growing market, there's increasing demand for efficient materials management.
+      </p>
+      <p class="intro">
+        SAP eAcademy’s MM module equips you to automate the entire supply chain and design a reliable manufacturing process. Certification supports exponential career growth.
+      </p>
+
+      <div class="career-paths">
+        <h3>I. Within an Organization</h3>
+        <p>As an SAP Certified Consultant, you may be absorbed by a leading company. Based on your experience and expertise, you could start as a Project Manager.</p>
+
+        <h3>II. As an Independent Consultant</h3>
+        <p>Become the go-to expert globally—significantly increasing your earning potential.</p>
+
+        <h3>III. As an SAP Trainer</h3>
+        <p>Lead professional workshops for SAP customers worldwide.</p>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item" *ngFor="let topic of topics">
+          <div class="accordion-header" (click)="toggleExpand(topic.code)">
+            <span>{{ topic.code }} – {{ topic.title }}</span>
+            <span class="toggle-icon">{{ expanded === topic.code ? '-' : '+' }}</span>
+          </div>
+          <div class="accordion-body" *ngIf="expanded === topic.code">
+            <ul>
+              <li *ngFor="let detail of topic.details">{{ detail }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

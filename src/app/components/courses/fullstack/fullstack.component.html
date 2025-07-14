@@ -1,0 +1,46 @@
+<section class="fullstack-section">
+  <div class="container">
+    <div class="poster-layout">
+      
+      <!-- 📸 Image side -->
+      <div class="image-side">
+        <div class="image-block">
+          <img src="https://img.freepik.com/free-photo/person-front-computer-working-html_23-2150040428.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="Front-End">
+          <div class="overlay">
+            <h4>Front-End Skills</h4>
+            <span class="corner">HTML, CSS, JS</span>
+          </div>
+        </div>
+        <div class="image-block">
+          <img src="https://img.freepik.com/free-photo/male-coder-works-from-home-typing-code-laptop-modern-living-room_482257-124193.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="Back-End">
+          <div class="overlay">
+            <h4>Back-End Tech</h4>
+            <span class="corner">Node, Python</span>
+          </div>
+        </div>
+        <div class="image-block">
+          <img src="https://img.freepik.com/free-photo/group-six-indian-businessman-suits-posed-outdoor-winter-day-europe-looking-laptop_627829-13345.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="Internship">
+          <div class="overlay">
+            <h4>Live Projects</h4>
+            <span class="corner">Real-World Code</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🧩 Content side -->
+      <div class="content-side">
+        <h2>Full Stack Development Training & Internship</h2>
+        <p>Become a versatile developer by mastering both front-end and back-end technologies at <strong>Syvaxia</strong>.</p>
+        
+        <div class="card-grid">
+          <div class="card" *ngFor="let item of highlights">
+            <div class="icon">{{ item.icon }}</div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

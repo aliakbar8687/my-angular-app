@@ -1,0 +1,41 @@
+<section class="sap-abap-section">
+  <div class="container">
+    <div class="row">
+      <!-- Left: Images with overlay content -->
+      <div class="image-column">
+        <div class="image-card" *ngFor="let img of images">
+          <img [src]="img.src" [alt]="img.alt" />
+          <div class="overlay">
+            <h4>{{ img.title }}</h4>
+            <p>{{ img.caption }}</p>
+          </div>
+          <div class="corner-note">{{ img.note }}</div>
+        </div>
+      </div>
+
+      <!-- Right: Text Content -->
+      <div class="content-column">
+        <div class="header">
+          <h2>Become a SAP ABAP Expert</h2>
+          <p>Syvaxia's industry-focused SAP ABAP training helps you build a strong foundation in enterprise application development using SAP’s proprietary programming language.</p>
+        </div>
+
+        <div class="content-grid">
+          <div class="topics">
+            <h3>Course Modules</h3>
+            <ul>
+              <li *ngFor="let topic of topics">✅ {{ topic }}</li>
+            </ul>
+          </div>
+
+          <div class="highlights">
+            <h3>Why Learn ABAP with Syvaxia?</h3>
+            <ul>
+              <li *ngFor="let point of highlights">✔️ {{ point }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

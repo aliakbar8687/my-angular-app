@@ -1,0 +1,330 @@
+// Variables
+$primary-color: #0066cc;
+$secondary-color: #f8f9fa;
+$accent-color: #28a745;
+$text-dark: #2c3e50;
+$text-light: #080808;
+$white: #ffffff;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition($property: all, $duration: 0.3s) {
+  transition: $property $duration ease;
+}
+
+// Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: $text-dark;
+  overflow-x: hidden;
+}
+
+.poster-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Hero Section
+.hero-section {
+  background: linear-gradient(135deg, $primary-color 0%, #004499 100%);
+  color: $white;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+margin-top: 100px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 100%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.05);
+    transform: rotate(15deg);
+    z-index: 1;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-text {
+    animation: slideInLeft 0.8s ease-out;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+  }
+
+  .hero-image {
+    animation: slideInRight 0.8s ease-out;
+
+    img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: $shadow;
+      @include transition();
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+// Content Sections
+.content-section {
+  padding: 4rem 2rem;
+
+  &:nth-child(even) {
+    background: $secondary-color;
+  }
+
+  &.reverse .content-row {
+    flex-direction: row-reverse;
+  }
+
+  .content-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .content-text {
+    h2 {
+      font-size: 2.5rem;
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: $text-light;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        padding: 0.5rem 0;
+        position: relative;
+        padding-left: 2rem;
+
+        &::before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: $accent-color;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .content-image {
+    img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: $shadow;
+      @include transition();
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+// Benefits Grid
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.benefit-item {
+  background: $white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: $shadow;
+  @include transition();
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  h4 {
+    color: $primary-color;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $text-light;
+  }
+}
+
+// Pathway Cards
+.pathway-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pathway-card {
+  background: linear-gradient(45deg, $primary-color, #0052a3);
+  color: $white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  @include transition();
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  h4 {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+}
+
+
+
+// Animations
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .hero-content,
+  .content-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-section {
+    padding: 3rem 1rem;
+
+    .hero-text h1 {
+      font-size: 2.2rem;
+    }
+  }
+
+  .content-section {
+    padding: 3rem 1rem;
+
+    &.reverse .content-row {
+      flex-direction: column;
+    }
+
+    .content-text h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .benefits-grid,
+  .pathway-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-cta {
+    padding: 3rem 1rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .content-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .cta-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,54 @@
+<section class="qm-section">
+  <div class="poster-wrapper">
+    <!-- Image Content Side -->
+    <div class="image-side">
+      <div class="image-box" style="background-image: url('https://img.freepik.com/free-photo/standard-quality-control-collage_23-2149631023.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+        <div class="overlay-text">
+          <h3>End-to-End Quality</h3>
+          <span class="corner-text">Inspection Ready</span>
+        </div>
+      </div>
+      <div class="image-box" style="background-image: url('https://img.freepik.com/free-photo/businessman-interacting-with-futuristic-graphics_23-2151003719.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+        <div class="overlay-text">
+          <h3>Certified SAP QM Courses</h3>
+          <span class="corner-text">Globally Recognized</span>
+        </div>
+      </div>
+      <div class="image-box" style="background-image: url('https://img.freepik.com/premium-photo/sap-system-software-automation-concept-motherboard_438099-9370.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+        <div class="overlay-text">
+          <h3>Industry Aligned</h3>
+          <span class="corner-text">SAP Expertise</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Side -->
+    <div class="content-side">
+      <h2 class="section-title">Syvaxia – SAP Quality Management (QM)</h2>
+      <p class="intro">
+        Learn SAP Quality Management (QM) to ensure product excellence across procurement, production, and delivery chains. From planning and inspection to compliance, Syvaxia equips you with the expertise industries seek.
+      </p>
+
+      <div class="accordion">
+        <div class="accordion-item" *ngFor="let course of courses">
+          <div class="accordion-header" (click)="toggle(course.code)">
+            <span>{{ course.code }} – {{ course.title }}</span>
+            <span class="icon">{{ expanded === course.code ? '-' : '+' }}</span>
+          </div>
+          <div class="accordion-body" *ngIf="expanded === course.code">
+            <ul *ngIf="course.details.length > 0">
+              <li *ngFor="let detail of course.details">{{ detail }}</li>
+            </ul>
+            <p *ngIf="course.details.length === 0">Details will be provided in the course materials.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sap-link">
+        <a href="https://training.sap.com/trainingpath/Applications-Quality+Management-SAP+ERP" target="_blank">
+          📘 View Official SAP QM Path
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

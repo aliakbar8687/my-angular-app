@@ -1,0 +1,130 @@
+<section class="event-gallery">
+  <!-- Hero Section -->
+  <div class="hero-banner">
+    <div class="hero-content">
+      <h1 class="main-title">SAP Events & Training Hub</h1>
+      <p class="hero-subtitle">Empowering careers through world-class SAP education and certification programs</p>
+    </div>
+  </div>
+
+  <!-- Main Content Section -->
+  <div class="content-wrapper">
+    <!-- Left Content Panel -->
+    <div class="content-panel">
+      <div class="content-block">
+        <div class="content-header">
+          <span class="content-tag">Latest Updates</span>
+          <h2 class="content-title">SAP Events Highlights</h2>
+        </div>
+
+        <div class="content-body">
+          <div class="highlight-card">
+            <div class="card-icon">🎓</div>
+            <div class="card-content">
+              <h3>Certification Programs</h3>
+              <p>Join our comprehensive SAP certification courses designed for professionals at all levels. From beginner to advanced, we offer structured learning paths.</p>
+              <ul class="feature-list">
+                <li>SAP S/4HANA Certification</li>
+                <li>SAP Analytics Cloud Training</li>
+                <li>SAP SuccessFactors Modules</li>
+                <li>SAP Ariba Procurement</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="highlight-card">
+            <div class="card-icon">🏢</div>
+            <div class="card-content">
+              <h3>Corporate Training</h3>
+              <p>Customized SAP training solutions for enterprises looking to upskill their workforce with hands-on experience and real-world applications.</p>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <span class="stat-number">500+</span>
+                  <span class="stat-label">Students Trained</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">95%</span>
+                  <span class="stat-label">Success Rate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-card">
+            <div class="card-icon">💼</div>
+            <div class="card-content">
+              <h3>Internship Programs</h3>
+              <p>Bridge the gap between academic learning and industry requirements through our structured internship programs with leading SAP partners.</p>
+              <div class="action-buttons">
+                <!-- <button class="btn-primary">Apply Now</button>
+                <button class="btn-secondary">Learn More</button> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <blockquote>
+              "The SAP training program transformed my career. The hands-on approach and expert guidance helped me achieve certification in just 3 months."
+            </blockquote>
+            <!-- <cite>— Sarah Johnson, SAP Consultant</cite> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Image Gallery Panel -->
+    <div class="gallery-panel">
+      <div class="gallery-header">
+        <h3 class="gallery-title">Event Gallery</h3>
+        <p class="gallery-subtitle">Moments from our recent SAP training sessions and workshops</p>
+      </div>
+
+      <div class="image-grid">
+        <div class="image-card" *ngFor="let image of eventImages; let i = index" 
+             [ngClass]="[image.layout, 'delay-' + (i % 4)]">
+          <div class="image-container">
+            <img [src]="image.src" [alt]="image.caption" loading="lazy" />
+            <div class="image-overlay">
+              <div class="overlay-content">
+                <h4 class="image-title">{{ image.caption }}</h4>
+                <p class="image-description">{{ image.description }}</p>
+                <span class="image-date">{{ image.date }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-category">{{ image.category }}</span>
+            <div class="card-actions">
+              <button class="action-btn" title="View Details">
+                <i class="icon-eye"></i>
+              </button>
+              <button class="action-btn" title="Share">
+                <i class="icon-share"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Load More Button -->
+      <div class="gallery-footer">
+        <button class="load-more-btn" (click)="loadMoreImages()">
+          <span>Load More Events</span>
+          <i class="icon-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom CTA Section -->
+  <!-- <div class="cta-section">
+    <div class="cta-content">
+      <h3>Ready to Start Your SAP Journey?</h3>
+      <p>Join thousands of professionals who have advanced their careers with our SAP training programs</p>
+      <div class="cta-buttons">
+        <button class="cta-btn primary">Enroll Today</button>
+        <button class="cta-btn secondary">Schedule a Demo</button>
+      </div>
+    </div>
+  </div> -->
+</section>

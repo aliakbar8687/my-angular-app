@@ -1,0 +1,286 @@
+.analytics-poster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  background: linear-gradient(135deg, #eaf6ff, #f9fcff);
+  padding: 3rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 100px;
+  min-height: 100vh;
+
+  .poster-content, .poster-images {
+    flex: 1 1 500px;
+    padding: 2rem;
+  }
+
+  .poster-content {
+    display: flex;
+    align-items: center;
+
+    .content-box {
+      max-width: 600px;
+      width: 100%;
+
+      h2 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        color: #0d2c4d;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+
+        span {
+          color: #1976d2;
+        }
+      }
+
+      p {
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
+        color: #333;
+        margin: 1rem 0 2rem;
+        line-height: 1.6;
+      }
+
+      .features {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+
+        li {
+          font-size: clamp(0.9rem, 2vw, 1rem);
+          margin: 0.5rem 0;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          span {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      .cta-btn {
+        margin-top: 2rem;
+        background-color: #1976d2;
+        color: #fff;
+        border: none;
+        padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 3vw, 1.5rem);
+        font-size: clamp(0.9rem, 2vw, 1rem);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+        max-width: 200px;
+
+        &:hover {
+          background-color: #155a9c;
+        }
+      }
+    }
+  }
+
+  .poster-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    .img-card {
+      position: relative;
+      height: clamp(200px, 30vw, 250px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .overlay-text {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: clamp(0.6rem, 2vw, 0.8rem) clamp(0.8rem, 2.5vw, 1rem);
+        border-radius: 8px;
+        backdrop-filter: blur(10px);
+
+        h4 {
+          margin: 0 0 0.25rem 0;
+          font-size: clamp(1rem, 2.5vw, 1.2rem);
+          color: #0d2c4d;
+          font-weight: 600;
+        }
+
+        small {
+          color: #555;
+          font-size: clamp(0.75rem, 2vw, 0.85rem);
+        }
+      }
+
+      .corner-label {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: #1976d2;
+        color: #fff;
+        padding: clamp(0.25rem, 1vw, 0.3rem) clamp(0.6rem, 1.5vw, 0.8rem);
+        font-size: clamp(0.7rem, 1.5vw, 0.75rem);
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        font-weight: 500;
+      }
+
+      &.img1 {
+        background-image: url('https://img.freepik.com/premium-photo/man-holding-tablet-computer-data-analysis-profit-charts-stock-market-trends-analysis-business-finance_220873-3943.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');
+      }
+
+      &.img2 {
+        background-image: url('https://img.freepik.com/free-photo/business-data-analysis_53876-95296.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');
+      }
+
+      &.img3 {
+        background-image: url('https://img.freepik.com/premium-photo/big-data-technology-business-finance-concept_31965-3079.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');
+      }
+    }
+  }
+
+  // Tablet breakpoint
+  @media (max-width: 1024px) {
+    padding: 2rem 1rem;
+    margin-top: 100px;
+
+    .poster-content, .poster-images {
+      flex: 1 1 400px;
+      padding: 1.5rem;
+    }
+
+    .poster-images {
+      .img-card {
+        height: clamp(180px, 25vw, 220px);
+      }
+    }
+  }
+
+  // Small tablet breakpoint
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1.5rem 0.75rem;
+    margin-top: 100px;
+
+    .poster-content, .poster-images {
+      flex: 1 1 auto;
+      padding: 1rem;
+    }
+
+    .poster-content {
+      .content-box {
+        text-align: left;
+
+        .cta-btn {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    }
+
+    .poster-images {
+      margin-top: 1rem;
+      
+      .img-card {
+        height: clamp(160px, 40vw, 200px);
+
+        .overlay-text {
+          bottom: 0.75rem;
+          left: 0.75rem;
+          right: 0.75rem;
+        }
+
+        .corner-label {
+          top: 0.75rem;
+          right: 0.75rem;
+        }
+      }
+    }
+  }
+
+  // Mobile breakpoint
+  @media (max-width: 480px) {
+    padding: 1rem 0.5rem;
+    margin-top: 100px;
+
+    .poster-content, .poster-images {
+      padding: 0.75rem;
+    }
+
+    .poster-content {
+      .content-box {
+        h2 {
+          margin-bottom: 0.75rem;
+        }
+
+        p {
+          margin: 0.75rem 0 1.5rem;
+        }
+
+        .features {
+          margin: 1rem 0;
+
+          li {
+            margin: 0.4rem 0;
+            gap: 0.4rem;
+          }
+        }
+
+        .cta-btn {
+          margin-top: 1.5rem;
+        }
+      }
+    }
+
+    .poster-images {
+      gap: 1rem;
+
+      .img-card {
+        height: clamp(140px, 35vw, 180px);
+        border-radius: 8px;
+
+        .overlay-text {
+          padding: 0.5rem 0.75rem;
+          border-radius: 6px;
+          bottom: 0.5rem;
+          left: 0.5rem;
+          right: 0.5rem;
+
+          h4 {
+            margin-bottom: 0.2rem;
+          }
+        }
+
+        .corner-label {
+          top: 0.5rem;
+          right: 0.5rem;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+
+  // Extra small mobile breakpoint
+  @media (max-width: 320px) {
+    padding: 0.75rem 0.25rem;
+
+    .poster-content, .poster-images {
+      padding: 0.5rem;
+    }
+
+    .poster-images {
+      .img-card {
+        height: clamp(120px, 30vw, 160px);
+      }
+    }
+  }
+}

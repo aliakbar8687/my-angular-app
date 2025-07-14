@@ -1,0 +1,203 @@
+<div class="container">
+  <h1>Syvaxia Contact Form</h1>
+  <button class="open-modal-btn" (click)="openModal()">
+    Open Contact Form
+  </button>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" [class.active]="isModalOpen" (click)="closeModal()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+      <div class="background-overlay"></div>
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h2>Contact Us</h2>
+        <button class="close-btn" type="button" (click)="closeModal()">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- Success Message -->
+        <div *ngIf="showSuccessMessage" class="success-message">
+          <div class="success-icon">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#10B981"/>
+              <path d="m9 12 2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Success!</h3>
+          <p>Your response has been submitted successfully. Our team will contact you within 24 hours.</p>
+          <button class="success-btn" (click)="closeModal()">Close</button>
+        </div>
+
+        <!-- Contact Form -->
+        <form *ngIf="!showSuccessMessage" [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
+          <div class="form-header">
+            <h3>Fill Your Details</h3>
+            <p>We'll get back to you within 24 hours</p>
+          </div>
+
+        <div class="form-grid">
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input
+              type="text"
+              id="fullName"
+              formControlName="fullName"
+              class="form-control"
+              [class.error]="isFieldInvalid('fullName')"
+              placeholder="Enter your full name"
+              (input)="onFullNameInput($event)"
+            >
+            <div *ngIf="isFieldInvalid('fullName')" class="error-message">
+              {{ getFieldError('fullName') }}
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              class="form-control"
+              [class.error]="isFieldInvalid('email')"
+              placeholder="Enter your email address"
+            >
+            <div *ngIf="isFieldInvalid('email')" class="error-message">
+              {{ getFieldError('email') }}
+            </div>
+          </div>
+
+          <!-- State Dropdown -->
+          <div class="form-group">
+            <label for="state">State *</label>
+            <select
+              id="state"
+              formControlName="state"
+              class="form-control"
+              [class.error]="isFieldInvalid('state')"
+              (change)="onStateChange($event)"
+            >
+              <option value="">Select your state</option>
+              <option *ngFor="let state of states" [value]="state.id">{{ state.name }}</option>
+            </select>
+            <div *ngIf="isFieldInvalid('state')" class="error-message">
+              {{ getFieldError('state') }}
+            </div>
+          </div>
+
+          <!-- City Dropdown -->
+          <div class="form-group">
+            <label for="city">City *</label>
+            <select
+              id="city"
+              formControlName="city"
+              class="form-control"
+              [class.error]="isFieldInvalid('city')"
+              [disabled]="!contactForm.get('state')?.value || loadingCities"
+            >
+              <option value="">{{ loadingCities ? 'Loading cities...' : 'Select your city' }}</option>
+              <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
+            </select>
+            <div *ngIf="isFieldInvalid('city')" class="error-message">
+              {{ getFieldError('city') }}
+            </div>
+          </div>
+
+          <!-- Graduation Year -->
+          <div class="form-group">
+            <label for="graduationYear">Graduation Year *</label>
+            <select
+              id="graduationYear"
+              formControlName="graduationYear"
+              class="form-control"
+              [class.error]="isFieldInvalid('graduationYear')"
+            >
+              <option value="">Select graduation year</option>
+              <option *ngFor="let year of graduationYears" [value]="year">{{ year }}</option>
+            </select>
+            <div *ngIf="isFieldInvalid('graduationYear')" class="error-message">
+              {{ getFieldError('graduationYear') }}
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="form-group">
+            <label for="experience">Experience Level *</label>
+            <select
+              id="experience"
+              formControlName="experience"
+              class="form-control"
+              [class.error]="isFieldInvalid('experience')"
+            >
+              <option value="">Select your experience</option>
+              <option *ngFor="let exp of experienceOptions" [value]="exp.value">{{ exp.label }}</option>
+            </select>
+            <div *ngIf="isFieldInvalid('experience')" class="error-message">
+              {{ getFieldError('experience') }}
+            </div>
+          </div>
+
+          <!-- Mobile Number -->
+          <div class="form-group full-width">
+            <label for="mobileNumber">Mobile Number *</label>
+            <input
+              type="tel"
+              id="mobileNumber"
+              formControlName="mobileNumber"
+              class="form-control"
+              [class.error]="isFieldInvalid('mobileNumber')"
+              placeholder="Enter 10-digit mobile number"
+              maxlength="10"
+              (input)="onMobileNumberInput($event)"
+            >
+            <div *ngIf="isFieldInvalid('mobileNumber')" class="error-message">
+              {{ getFieldError('mobileNumber') }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Terms and Privacy Policy Checkbox -->
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              formControlName="agreeToTerms"
+              class="checkbox-input"
+              [class.error]="isFieldInvalid('agreeToTerms')"
+            >
+            <span class="checkbox-custom"></span>
+            <span class="checkbox-text">
+              By continuing, you confirm that you have read and agreed to Syvaxia's
+              <a routerLink="/terms" class="link">Terms of Service</a> and
+              <a routerLink="/privacy-policy" class="link">Privacy Policy</a>
+            </span>
+          </label>
+          <div *ngIf="isFieldInvalid('agreeToTerms')" class="error-message">
+            You must agree to the Terms and Privacy Policy to continue
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-actions">
+          <button 
+            type="submit" 
+            class="submit-btn" 
+            [disabled]="isSubmitting"
+            [class.loading]="isSubmitting"
+          >
+            <span *ngIf="!isSubmitting">Submit Application</span>
+            <span *ngIf="isSubmitting" class="loading-spinner">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Submitting...
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

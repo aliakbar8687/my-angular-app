@@ -1,0 +1,93 @@
+<section class="recruiter-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2 class="section-title">Our Trusted Recruiters</h2>
+      <p class="section-subtitle">Partnering with industry leaders to connect talent with opportunity</p>
+    </div>
+
+    <!-- Slider Container -->
+    <div class="slider-wrapper">
+      <!-- Navigation Arrows -->
+      <button 
+        class="nav-arrow nav-arrow-left" 
+        (click)="prevSlide()" 
+        [disabled]="isTransitioning"
+        [class.disabled]="isTransitioning">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button 
+        class="nav-arrow nav-arrow-right" 
+        (click)="nextSlide()" 
+        [disabled]="isTransitioning"
+        [class.disabled]="isTransitioning">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Slider Track -->
+      <div 
+        class="slider-track" 
+        #sliderContainer
+        (touchstart)="onTouchStart($event)"
+        (touchend)="onTouchEnd($event)"
+        (mouseenter)="stopAutoSlide()"
+        (mouseleave)="startAutoSlide()">
+        
+        <div 
+          class="slider-container" 
+          [style.transform]="getSliderTransform()"
+          [class.transitioning]="isTransitioning">
+          
+          <div 
+            class="recruiter-slide" 
+            *ngFor="let recruiter of recruiters; let i = index">
+            <div class="recruiter-card">
+              <div class="card-inner">
+                <a [href]="recruiter.website" target="_blank" rel="noopener">
+                  <div class="logo-container">
+                    <img [src]="recruiter.logo" [alt]="recruiter.name" loading="lazy" />
+                  </div>
+                  <div class="recruiter-info">
+                    <h3 class="recruiter-name">{{ recruiter.name }}</h3>
+                    <div class="visit-overlay">
+                      <span>Visit Website</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="pagination-dots" *ngIf="recruiters.length > slidesToShow">
+      <button 
+        class="dot" 
+        *ngFor="let dot of getDots(); let i = index"
+        [class.active]="i === currentIndex"
+        (click)="goToSlide(i)"
+        [attr.aria-label]="'Go to slide ' + (i + 1)">
+      </button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container" *ngIf="recruiters.length > slidesToShow">
+      <div class="progress-bar">
+        <div 
+          class="progress-fill" 
+          [style.width.%]="((currentIndex + 1) / getDotCount()) * 100">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

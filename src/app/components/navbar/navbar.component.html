@@ -1,0 +1,96 @@
+<div class="top-banner" *ngIf="!isBannerClosed">
+  <div class="banner-content">
+    <div class="banner-text">
+      Get 100% Job Guarantee Courses for Freshers, Non-IT & Career Gap.
+    </div>
+<button class="banner-button" (click)="onEnrollClick()">
+  Enroll Now
+</button>
+
+    <button class="close-banner" (click)="closeBanner()" aria-label="Close banner">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Your existing navbar code goes here -->
+<nav class="navbar" [class.scrolled]="isScrolled" [class.banner-closed]="isBannerClosed">
+  <div class="container">
+    <div class="navbar-content">
+      <!-- Logo -->
+      <div class="navbar-brand">
+        <img src="assets/images/logo5.png" alt="Syvaxia Logo" class="logo">
+        <!-- <img src="assets/images/logo2.png" alt="Syvaxia Logo" class="logo"> -->
+        <!-- <img src="assets/images/logo3.png" alt="Syvaxia Logo" class="logo"> -->
+      </div>
+
+      <!-- Desktop Navigation -->
+      <ul class="navbar-nav desktop-nav">
+        <li *ngFor="let item of navigationItems" class="nav-item" 
+            [class.has-dropdown]="item.subItems.length > 0">
+          <a class="nav-link" [href]="item.link" (click)="scrollToSection(item.link)">
+            {{ item.title }}
+            <i *ngIf="item.subItems.length > 0" class="fas fa-chevron-down"></i>
+          </a>
+          <ul *ngIf="item.subItems.length > 0" class="dropdown-menu">
+            <li *ngFor="let subItem of item.subItems">
+              <a [href]="subItem.link" (click)="scrollToSection(subItem.link)">{{ subItem.title }}</a>
+              <ul *ngIf="subItem.subItems && subItem.subItems.length > 0" class="nested-dropdown-menu ">
+                <li *ngFor="let nestedSubItem of subItem.subItems">
+                  <a [href]="nestedSubItem.link" (click)="scrollToSection(nestedSubItem.link)">{{ nestedSubItem.title }}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" [class.active]="isMobileMenuOpen">
+      <ul class="mobile-nav-list">
+        <li *ngFor="let item of navigationItems" class="mobile-nav-item">
+          <a class="mobile-nav-link" 
+             (click)="handleMobileMenuClick($event, item)">
+            {{ item.title }}
+            <i *ngIf="item.subItems.length > 0" 
+               class="fas fa-chevron-down dropdown-arrow"
+               [class.rotated]="isMenuExpanded(item.title)"></i>
+          </a>
+          
+          <!-- Mobile Dropdown -->
+          <ul *ngIf="item.subItems.length > 0" 
+              class="mobile-dropdown"
+              [class.expanded]="isMenuExpanded(item.title)">
+            <li *ngFor="let subItem of item.subItems">
+              <a (click)="handleMobileSubMenuClick($event, item.title, subItem)">
+                {{ subItem.title }}
+                <i *ngIf="subItem.subItems && subItem.subItems.length > 0" 
+                   class="fas fa-chevron-right nested-arrow"
+                   [class.rotated]="isSubMenuExpanded(item.title, subItem.title)"></i>
+              </a>
+              
+              <!-- Mobile Nested Dropdown -->
+              <ul *ngIf="subItem.subItems && subItem.subItems.length > 0"
+                  class="mobile-nested-dropdown"
+                  [class.expanded]="isSubMenuExpanded(item.title, subItem.title)">
+                <li *ngFor="let nestedSubItem of subItem.subItems">
+                  <a [href]="nestedSubItem.link" (click)="scrollToSection(nestedSubItem.link)">
+                    {{ nestedSubItem.title }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

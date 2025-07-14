@@ -1,0 +1,199 @@
+// Variables
+$primary-color: #003366;
+$accent-color: #00b4d8;
+$text-color: #222;
+$light-gray: #f9f9f9;
+$dark-gray: #333;
+$border-radius: 12px;
+$shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+.story-section {
+  font-family: 'Poppins', sans-serif;
+  color: $text-color;
+  background-color: $light-gray;
+
+  .story-hero {
+    background: linear-gradient(
+        rgba(0, 51, 102, 0.6), 
+        rgba(0, 51, 102, 0.8)
+      ),
+      url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29ycG9yYXRlfGVufDB8MHwwfHx8MA%3D%3D') center/cover no-repeat;
+    background-size: cover;
+      height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    margin-top: 70px;
+    .overlay {
+      color: white;
+
+      .story-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .story-tagline {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-top: 0.5rem;
+        color: #e0e0e0;
+      }
+    }
+  }
+
+  .story-content {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+
+    .text-block {
+      margin-bottom: 3rem;
+
+      h2 {
+        font-size: 2rem;
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: $dark-gray;
+      }
+    }
+
+    .image-text-block {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: white;
+      border-radius: $border-radius;
+      padding: 2rem;
+      box-shadow: $shadow;
+      margin-bottom: 3rem;
+
+      .image {
+        flex: 1 1 250px;
+        max-width: 300px;
+        border-radius: $border-radius;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .text {
+        flex: 2 1 300px;
+
+        h3 {
+          color: $primary-color;
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.8;
+        }
+      }
+    }
+
+    .milestones {
+      background-color: #fff;
+      border-left: 4px solid $accent-color;
+      padding: 2rem;
+      border-radius: $border-radius;
+      box-shadow: $shadow;
+      margin-bottom: 3rem;
+
+      h2 {
+        color: $primary-color;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      ul {
+        padding-left: 1rem;
+
+        li {
+          font-size: 1rem;
+          line-height: 1.7;
+          margin-bottom: 0.75rem;
+
+          strong {
+            color: $accent-color;
+          }
+        }
+      }
+    }
+
+    .quote-section {
+      background-color: $primary-color;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      border-radius: $border-radius;
+      box-shadow: $shadow;
+
+      blockquote {
+        font-size: 1.3rem;
+        font-style: italic;
+        margin-bottom: 1rem;
+      }
+
+      .quote-author {
+        font-weight: 600;
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .story-hero {
+    height: 50vh;
+
+    .overlay {
+      .story-title {
+        font-size: 2rem;
+      }
+
+      .story-tagline {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .story-content {
+    padding: 2rem 1rem;
+
+    .image-text-block {
+      flex-direction: column;
+      text-align: center;
+
+      .image {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .story-hero {
+    height: 40vh;
+
+    .overlay {
+      .story-tagline {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .story-content .text-block h2,
+  .story-content .milestones h2 {
+    font-size: 1.5rem;
+  }
+}

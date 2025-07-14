@@ -1,0 +1,93 @@
+<div class="poster-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <span class="hero-badge">Success Story</span>
+      <h1 class="hero-title">SAP Project Go-Live</h1>
+      <p class="hero-subtitle">Celebrating milestone achievements in digital transformation</p>
+      <button class="cta-button" (click)="scrollToGallery()">Explore Gallery</button>
+    </div>
+    <div class="hero-image">
+      <img [src]="goLiveImages[0].src" [alt]="goLiveImages[0].caption">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="features-content">
+      <h2>Project Highlights</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Team Training</h3>
+          <p>Comprehensive training sessions for seamless adoption</p>
+        </div>
+        <div class="feature-card">
+          <h3>Stakeholder Engagement</h3>
+          <p>Active participation from all key stakeholders</p>
+        </div>
+        <div class="feature-card">
+          <h3>Successful Launch</h3>
+          <p>Smooth go-live with minimal disruption</p>
+        </div>
+      </div>
+    </div>
+    <div class="features-image">
+      <img [src]="goLiveImages[1].src" [alt]="goLiveImages[1].caption">
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section" id="gallery">
+    <h2 class="section-title">Project Gallery</h2>
+    <div class="gallery-grid">
+      <div 
+        *ngFor="let image of goLiveImages; let i = index" 
+        class="gallery-item"
+        [class]="image.layout"
+        [style.animation-delay]="i * 0.1 + 's'"
+        (click)="openLightbox(image)"
+      >
+        <img [src]="image.src" [alt]="image.caption" loading="lazy">
+        <div class="gallery-caption">{{ image.caption }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-image">
+      <img [src]="goLiveImages[2].src" [alt]="goLiveImages[2].caption">
+    </div>
+    <div class="stats-content">
+      <h2>Project Impact</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Team Members</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Modules Deployed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Success Rate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div 
+    *ngIf="selectedImage" 
+    class="lightbox" 
+    (click)="closeLightbox()"
+    [@fadeInOut]
+  >
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <span class="lightbox-close" (click)="closeLightbox()">&times;</span>
+      <img [src]="selectedImage.src" [alt]="selectedImage.caption">
+      <div class="lightbox-caption">{{ selectedImage.caption }}</div>
+    </div>
+  </div>
+</div>

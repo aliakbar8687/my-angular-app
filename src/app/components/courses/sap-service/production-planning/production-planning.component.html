@@ -1,0 +1,82 @@
+<section class="pp-section">
+  <div class="pp-wrapper">
+    <!-- Left: Image Grid -->
+    <div class="pp-images">
+      <div class="image-box" style="background-image: url('https://img.freepik.com/free-photo/production-business-plan-meeting_53876-94905.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+        <div class="overlay-text">
+          Smart Factory Integration
+          <span class="corner-note">SAP S/4HANA</span>
+        </div>
+      </div>
+      <div class="image-box" style="background-image: url('https://img.freepik.com/free-photo/businessman-working-desk_23-2147653318.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+        <div class="overlay-text">
+          Automated Planning
+          <span class="corner-note">Digital Core</span>
+        </div>
+      </div>
+      <div class="image-box" style="background-image: url('https://img.freepik.com/premium-photo/project-planning-software-modish-business-project-management-computer-screen-showing-timeline-chart-team-project_31965-337277.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+        <div class="overlay-text">
+          Data-Driven Execution
+          <span class="corner-note">Realtime KPI</span>
+        </div>
+      </div>
+
+      <div class="image-box" style="background-image: url('https://img.freepik.com/premium-photo/woman-working-laptop-bright-office-focusing-project-management-tasks-evening-hours_431161-113378.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+  <div class="overlay-text">
+    Shop Floor Control
+    <span class="corner-note">SAP PP Module</span>
+  </div>
+</div>
+
+<div class="image-box" style="background-image: url('https://img.freepik.com/free-photo/3d-cartoon-scene-depicting-variety-people-multitasking_23-2151294503.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+  <div class="overlay-text">
+    Demand Forecasting
+    <span class="corner-note">Predictive MRP</span>
+  </div>
+</div>
+
+<div class="image-box" style="background-image: url('https://img.freepik.com/premium-psd/engineer-factory-setting-is-analyzing-blueprint-while-wearing-safety-glasses_713655-32860.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740');">
+  <div class="overlay-text">
+    Production Simulation
+    <span class="corner-note">Digital Twin</span>
+  </div>
+</div>
+
+    </div>
+
+    <!-- Right: Text Content -->
+    <div class="pp-content">
+      <h2 class="section-title">SAP Production Planning (PP)</h2>
+
+      <p class="intro">
+        Today, manufacturing companies across the world rely on SAP ERP for better planning and production management. The Production Planning (PP) module automates key processes in the supply chain. SAP customers worldwide seek certified PP consultants with the right skills and expertise. SAP eAcademy’s PP module equips you to efficiently manage manufacturing operations, and certification supports exponential career growth.
+      </p>
+
+      <div class="career-paths">
+        <h3>I. Within an Organization</h3>
+        <p>As an SAP Certified Consultant, you may be hired by leading firms. Depending on your expertise, you could start as a Project Manager—boosting your career growth significantly.</p>
+
+        <h3>II. As an Independent Consultant</h3>
+        <p>Working independently as a functional consultant opens opportunities globally, positioning you as a go-to expert for SAP PP solutions.</p>
+
+        <h3>III. As an SAP Trainer</h3>
+        <p>Many SAP customers require thorough training. With certification and experience, you can also become an SAP Trainer for organizations or training institutes.</p>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item" *ngFor="let topic of topics">
+          <div class="accordion-header" (click)="toggleExpand(topic.code)">
+            <span>{{ topic.code }} – {{ topic.title }}</span>
+            <span class="toggle-icon">{{ expanded === topic.code ? '-' : '+' }}</span>
+          </div>
+          <div class="accordion-body" *ngIf="expanded === topic.code">
+            <ul *ngIf="topic.details.length > 0">
+              <li *ngFor="let detail of topic.details">{{ detail }}</li>
+            </ul>
+            <p *ngIf="topic.details.length === 0">Detailed curriculum available upon course enrollment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

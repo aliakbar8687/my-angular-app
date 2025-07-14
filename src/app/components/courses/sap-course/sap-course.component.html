@@ -1,0 +1,26 @@
+<section class="syvaxia-poster">
+  <div class="poster-wrapper">
+    <!-- Left Side: Image Gallery -->
+    <div class="poster-images">
+      <img src="https://img.freepik.com/premium-photo/sap-system-concept-sap-system-application-products-business-process-automation-management-software-concept-management-solutions_35148-12336.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740">
+      <img src="https://img.freepik.com/premium-vector/sap-business-process-automation-software-robotic-hand-touching-digital-interface_127544-260.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" alt="Corporate Training">
+      <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=400" alt="Team Learning">
+    </div>
+
+    <!-- Right Side: Course Details -->
+    <div class="poster-content">
+      <h2>Syvaxia SAP Training Program</h2>
+      <p>
+        Unlock your SAP career with Syvaxia’s industry-aligned training modules. Learn from experts and gain hands-on experience in real-world SAP environments.
+      </p>
+
+      <div class="course-grid">
+        <div class="course-card" *ngFor="let module of modules">
+          <div class="icon">{{ module.icon }}</div>
+          <h3>{{ module.title }}</h3>
+          <p>{{ module.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

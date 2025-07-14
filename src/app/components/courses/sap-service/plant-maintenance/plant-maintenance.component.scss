@@ -1,0 +1,303 @@
+.pm-section {
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #2c3e50;
+  margin-top: 120px;
+  min-height: 100vh;
+
+  .pm-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .pm-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+
+    @media (min-width: 768px) {
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+  }
+
+  .pm-images {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+      
+      .pm-image:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 768px) {
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 992px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      
+      .pm-image:first-child {
+        grid-column: auto;
+      }
+    }
+
+    .pm-image {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 180px;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(44, 62, 80, 0.1);
+      overflow: hidden;
+      transition: none;
+
+      @media (min-width: 480px) {
+        height: 200px;
+      }
+
+      @media (min-width: 768px) {
+        height: 220px;
+      }
+
+      @media (min-width: 992px) {
+        height: 160px;
+      }
+
+      @media (min-width: 1200px) {
+        height: 180px;
+      }
+
+      .overlay-text {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+        color: #ffffff;
+        background: rgba(44, 62, 80, 0.75);
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+
+        @media (min-width: 768px) {
+          bottom: 15px;
+          left: 15px;
+          right: 15px;
+          padding: 1rem 1.25rem;
+        }
+
+        h4 {
+          margin: 0;
+          font-size: 0.95rem;
+          font-weight: 600;
+          line-height: 1.3;
+
+          @media (min-width: 768px) {
+            font-size: 1.1rem;
+          }
+        }
+
+        .corner-note {
+          position: absolute;
+          top: -45px;
+          right: 0;
+          background: #3498db;
+          color: #ffffff;
+          padding: 0.3rem 0.6rem;
+          font-size: 0.7rem;
+          font-weight: 500;
+          border-radius: 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+
+          @media (min-width: 768px) {
+            top: -50px;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.7rem;
+          }
+        }
+      }
+    }
+  }
+
+  .pm-content {
+    flex: 1.5;
+    width: 100%;
+
+    @media (min-width: 992px) {
+      flex: 2;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+      font-weight: 700;
+      line-height: 1.2;
+      position: relative;
+
+      @media (min-width: 768px) {
+        font-size: 2.25rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (min-width: 992px) {
+        font-size: 2.5rem;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: #3498db;
+        margin-top: 8px;
+        border-radius: 2px;
+
+        @media (min-width: 768px) {
+          width: 80px;
+          height: 5px;
+          margin-top: 12px;
+        }
+      }
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      color: #34495e;
+
+      @media (min-width: 768px) {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+
+      @media (min-width: 992px) {
+        font-size: 1.1rem;
+      }
+    }
+
+    .accordion {
+      .accordion-item {
+        border: 1px solid #bdc3c7;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        background: #ffffff;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+
+        @media (min-width: 768px) {
+          margin-bottom: 1.25rem;
+        }
+
+        .accordion-header {
+          padding: 1rem 1.25rem;
+          background: #ecf0f1;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-weight: 600;
+          font-size: 0.95rem;
+          color: #2c3e50;
+          border-bottom: 1px solid #bdc3c7;
+
+          @media (min-width: 768px) {
+            padding: 1.25rem 1.5rem;
+            font-size: 1rem;
+          }
+
+          &:hover {
+            background: #d5dbdb;
+          }
+
+          .icon {
+            font-size: 1.25rem;
+            color: #3498db;
+
+            @media (min-width: 768px) {
+              font-size: 1.5rem;
+            }
+          }
+        }
+
+        .accordion-body {
+          padding: 1.25rem 1.25rem;
+          background: #ffffff;
+          color: #34495e;
+
+          @media (min-width: 768px) {
+            padding: 1.5rem 1.5rem;
+          }
+
+          ul {
+            padding-left: 1.5rem;
+            list-style-type: disc;
+            margin: 0;
+
+            li {
+              margin-bottom: 0.75rem;
+              line-height: 1.6;
+              font-size: 0.9rem;
+
+              @media (min-width: 768px) {
+                font-size: 0.95rem;
+                margin-bottom: 0.85rem;
+              }
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+
+          p {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+
+            @media (min-width: 768px) {
+              font-size: 0.95rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Additional responsive utilities
+@media (max-width: 479px) {
+  .pm-section {
+    padding: 1.5rem 0.75rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .pm-section {
+    .pm-container {
+      max-width: 1320px;
+    }
+  }
+}

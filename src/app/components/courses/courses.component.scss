@@ -1,0 +1,783 @@
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+// SCSS Variables - Corporate Color Palette
+$primary-color: #2c3e50;        // Deep blue
+$primary-dark: #34495e;         // Darker blue
+$secondary-color: #3b82f6;      // Bright blue
+$accent-color: #10b981;         // Success green
+$warning-color: #f59e0b;        // Warning orange
+$danger-color: #ef4444;         // Error red
+
+$text-primary: #1f2937;         // Dark gray
+$text-secondary: #6b7280;       // Medium gray
+$text-light: #9ca3af;           // Light gray
+
+$bg-primary: #ffffff;           // White
+$bg-secondary: #f9fafb;         // Light gray background
+$bg-card: #ffffff;              // Card background
+$border-color: #e5e7eb;         // Border color
+$border-light: #f3f4f6;         // Light border
+
+// Spacing Variables
+$spacing-xs: 0.25rem;   // 4px
+$spacing-sm: 0.5rem;    // 8px
+$spacing-md: 1rem;      // 16px
+$spacing-lg: 1.5rem;    // 24px
+$spacing-xl: 2rem;      // 32px
+$spacing-2xl: 3rem;     // 48px
+$spacing-3xl: 4rem;     // 64px
+
+// Responsive Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1200px;
+$wide: 1400px;
+
+// Typography
+$font-primary: 'Poppins', sans-serif;
+$font-secondary: 'Open Sans', sans-serif;
+
+// Mixins
+@mixin card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@mixin card-shadow-hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+@mixin transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@mixin button-gradient {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+}
+
+@mixin text-gradient {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Main Courses Section
+.courses-section {
+  padding: $spacing-3xl 0;
+  background: linear-gradient(135deg, $bg-secondary 0%, $bg-primary 100%);
+  font-family: $font-primary;
+
+  &__container {
+    max-width: $wide;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @media (min-width: $tablet) {
+      padding: 0 $spacing-xl;
+    }
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+    align-items: center;
+    margin-bottom: $spacing-3xl;
+
+    @media (min-width: $tablet) {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-3xl;
+    }
+
+    @media (min-width: $desktop) {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  &__header-content {
+    text-align: left;
+
+@media (max-width: #{($tablet - 1px)}) {
+  display: none;
+}
+
+  }
+
+  &__header-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @media (min-width: $tablet) {
+      justify-content: flex-end;
+    }
+
+    &-container {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      @include card-shadow-hover;
+      max-width: 100%;
+      width: 100%;
+
+      @media (min-width: $tablet) {
+        max-width: 500px;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba($primary-color, 0.1) 0%, rgba($secondary-color, 0.05) 100%);
+        z-index: 1;
+        pointer-events: none;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 1.5rem;
+      @include transition-smooth;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+
+    // Decorative elements
+    &::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, $accent-color, $secondary-color);
+      border-radius: 50%;
+      opacity: 0.1;
+      z-index: -1;
+@media (max-width: #{($tablet - 1px)}) {
+  display: none;
+}
+
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, $primary-color, $warning-color);
+      border-radius: 50%;
+      opacity: 0.08;
+      z-index: -1;
+
+@media (max-width: #{($tablet - 1px)}) {
+  display: none;
+}
+
+    }
+  }
+
+  &__subtitle {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $primary-color;
+    background: rgba($primary-color, 0.1);
+    padding: $spacing-sm $spacing-md;
+    border-radius: 2rem;
+    margin-bottom: $spacing-md;
+    border: 1px solid rgba($primary-color, 0.2);
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: $spacing-lg;
+    line-height: 1.2;
+
+    @media (max-width: $mobile) {
+      font-size: 2rem;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: 3rem;
+    }
+
+    // Add gradient text effect
+    span {
+      @include text-gradient;
+    }
+  }
+
+  &__description {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin-bottom: $spacing-xl;
+
+    @media (min-width: $desktop) {
+      font-size: 1.25rem;
+      max-width: 90%;
+    }
+  }
+
+  // Add action buttons to header content
+  &__header-actions {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+
+@media (max-width: #{($tablet - 1px)}) {
+  display: none;
+}
+
+  }
+
+  &__header-btn {
+    padding: $spacing-md $spacing-xl;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    @include transition-smooth;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    text-decoration: none;
+    border: none;
+
+    &--primary {
+      @include button-gradient;
+      color: white;
+
+      &:hover {
+        transform: translateY(-2px);
+        @include card-shadow-hover;
+      }
+    }
+
+    &--secondary {
+      background: rgba($primary-color, 0.1);
+      color: $primary-color;
+      border: 2px solid rgba($primary-color, 0.2);
+
+      &:hover {
+        background: rgba($primary-color, 0.15);
+        border-color: rgba($primary-color, 0.3);
+        transform: translateY(-1px);
+      }
+    }
+
+    &-icon {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__load-more {
+    text-align: center;
+    margin-top: $spacing-3xl;
+  }
+
+  &__load-btn {
+    @include button-gradient;
+    color: white;
+    border: none;
+    padding: $spacing-md $spacing-xl;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    @include transition-smooth;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    &:hover {
+      transform: translateY(-2px);
+      @include card-shadow-hover;
+    }
+  }
+
+  &__load-icon {
+    font-size: 1.25rem;
+  }
+
+  &__load-info {
+    margin-top: $spacing-md;
+    color: $text-secondary;
+    font-size: 0.875rem;
+  }
+}
+
+// Course Cards Grid
+.courses-grid {
+  display: grid;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-3xl;
+
+  // Responsive grid
+  grid-template-columns: 1fr;
+
+  @media (min-width: $mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: $wide) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Course Card Component
+.course-card {
+  background: $bg-card;
+  border-radius: 1rem;
+  overflow: hidden;
+  @include card-shadow;
+  @include transition-smooth;
+  border: 1px solid $border-light;
+  position: relative;
+
+  &:hover {
+    @include card-shadow-hover;
+    transform: translateY(-4px);
+  }
+
+  &__content {
+    padding: $spacing-lg;
+  }
+
+  &__avatar {
+    position: relative;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+
+    &-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid $border-light;
+      @include transition-smooth;
+    }
+
+    &-badge {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__header {
+    margin-bottom: $spacing-md;
+  }
+
+  &__category {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-sm;
+    flex-wrap: wrap;
+
+    &-text {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $text-secondary;
+    }
+  }
+
+  &__badge {
+    font-size: 0.625rem;
+    font-weight: 600;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &--level {
+      background: rgba($primary-color, 0.1);
+      color: $primary-color;
+    }
+
+    &--popular {
+      background: rgba($accent-color, 0.1);
+      color: $accent-color;
+    }
+
+    &--new {
+      background: rgba($warning-color, 0.1);
+      color: $warning-color;
+    }
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $text-primary;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    margin-bottom: $spacing-md;
+    font-size: 0.875rem;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  &__star {
+    color: $border-color;
+    font-size: 1rem;
+    @include transition-smooth;
+
+    &--filled {
+      color: $warning-color;
+    }
+  }
+
+  &__rating-text {
+    color: $text-secondary;
+    font-size: 0.75rem;
+  }
+
+  &__duration,
+  &__students {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    color: $text-secondary;
+    font-size: 0.75rem;
+  }
+
+  &__icon {
+    font-size: 0.875rem;
+  }
+
+  &__preview {
+    margin-bottom: $spacing-md;
+  }
+
+  &__description {
+    color: $text-secondary;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__instructor {
+    margin-bottom: $spacing-lg;
+    font-size: 0.875rem;
+
+    &-label {
+      color: $text-secondary;
+    }
+
+    &-name {
+      color: $primary-color;
+      font-weight: 600;
+      margin-left: $spacing-xs;
+    }
+  }
+
+  &__actions {
+    margin-bottom: $spacing-md;
+  }
+
+  &__btn {
+    width: 100%;
+    padding: $spacing-md;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    @include transition-smooth;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    border: none;
+
+    &--details {
+      background: rgba($primary-color, 0.1);
+      color: $primary-color;
+      border: 1px solid rgba($primary-color, 0.2);
+
+      &:hover {
+        background: rgba($primary-color, 0.15);
+        transform: translateY(-1px);
+      }
+    }
+
+    &--enroll {
+      @include button-gradient;
+      color: white;
+
+      &:hover {
+        transform: translateY(-2px);
+        @include card-shadow;
+      }
+    }
+
+    &-icon {
+      @include transition-smooth;
+      font-size: 0.75rem;
+
+      &--expanded {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // Expanded Content
+  &__expanded-content {
+    border-top: 1px solid $border-light;
+    padding-top: $spacing-lg;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  &__section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  &__full-description {
+    margin-bottom: $spacing-lg;
+
+    p {
+      color: $text-secondary;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  &__features {
+    margin-bottom: $spacing-lg;
+
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-xs 0;
+    font-size: 0.875rem;
+    color: $text-secondary;
+
+    &-icon {
+      color: $accent-color;
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+  }
+
+  &__stats {
+    margin-bottom: $spacing-lg;
+
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-md;
+    }
+  }
+
+  &__stat {
+    text-align: center;
+    padding: $spacing-md;
+    background: $bg-secondary;
+    border-radius: 0.5rem;
+    border: 1px solid $border-light;
+
+    &-icon {
+      font-size: 1.25rem;
+      margin-bottom: $spacing-xs;
+      display: block;
+    }
+
+    &-value {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $text-primary;
+      display: block;
+      margin-bottom: $spacing-xs;
+    }
+
+    &-label {
+      font-size: 0.625rem;
+      color: $text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &__enroll {
+    text-align: center;
+  }
+}
+
+// Statistics Section
+.courses-stats {
+  background:linear-gradient(135deg, #1a365d 0%, #2d5a87 50%, #4a90e2 100%);
+  border-radius: 1.5rem;
+  padding: $spacing-3xl $spacing-xl;
+  color: white;
+  text-align: center;
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: $spacing-xl;
+
+    @media (max-width: $mobile) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__item {
+    text-align: center;
+    padding: $spacing-lg;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    @include transition-smooth;
+
+    &:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  &__number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: $spacing-sm;
+
+    @media (max-width: $mobile) {
+      font-size: 2rem;
+    }
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    opacity: 0.8;
+  }
+}
+
+// Animations
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $mobile) {
+  .course-card {
+    &__stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .courses-stats {
+    padding: $spacing-xl $spacing-md;
+
+    &__grid {
+      gap: $spacing-md;
+    }
+
+    &__item {
+      padding: $spacing-md;
+    }
+  }
+
+  .courses-section {
+    &__header {
+      gap: $spacing-xl;
+    }
+
+    &__header-actions {
+      flex-direction: column;
+      align-items: stretch;
+
+      .courses-section__header-btn {
+        justify-content: center;
+      }
+    }
+  }
+}

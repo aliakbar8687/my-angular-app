@@ -1,0 +1,94 @@
+<div class="modal-backdrop" 
+     *ngIf="showModal" 
+     (click)="onBackdropClick($event)"
+     [@fadeInOut]>
+  
+  <!-- Floating particles background -->
+  <div class="particles-container">
+    <div class="particle" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]"></div>
+  </div>
+
+  <div class="modal-content" [@slideInOut]>
+    <!-- Close button with hover effect -->
+    <button class="close-btn" (click)="onClose()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <!-- Decorative corner elements -->
+    <div class="corner-decoration top-left"></div>
+    <div class="corner-decoration top-right"></div>
+    <div class="corner-decoration bottom-left"></div>
+    <div class="corner-decoration bottom-right"></div>
+    
+    <div class="modal-body">
+      <!-- Dynamic image section with overlay effects -->
+      <div class="discount-image">
+        <div class="image-overlay"></div>
+        <img [src]="currentImage" 
+             [@imageSlide]="currentImageIndex"
+             alt="Special Discount Offer" 
+             loading="eager">
+        <div class="image-glow"></div>
+      </div>
+      
+      <!-- Dynamic content section -->
+      <div class="discount-content" [@contentPulse]="currentOfferIndex">
+        <!-- Animated badge -->
+        <div class="discount-badge" [style.background]="currentOffer.gradient">
+          <span>{{ currentOffer.badge }}</span>
+          <div class="badge-shine"></div>
+        </div>
+        
+        <!-- Dynamic title with emoji animation -->
+        <h2 class="offer-title">
+          <span class="emoji-bounce">{{ currentOffer.emoji }}</span>
+          {{ currentOffer.title.replace(currentOffer.emoji, '') }}
+        </h2>
+        
+        <!-- Animated discount percentage -->
+        <div class="discount-percentage" [style.background]="currentOffer.gradient">
+          <span class="discount-text">{{ currentOffer.discount }}</span>
+          <div class="percentage-glow"></div>
+        </div>
+        
+        <!-- Dynamic description -->
+        <p class="offer-description">{{ currentOffer.description }}</p>
+        
+        <!-- Action buttons with enhanced styling -->
+        <div class="action-buttons">
+          <button class="claim-btn" 
+                  [style.background]="currentOffer.gradient"
+                  (click)="onClaimDiscount()">
+            <span>{{ currentOffer.buttonText }}</span>
+            <div class="button-shine"></div>
+          </button>
+          <button class="later-btn" (click)="onClose()">
+            <span>Maybe Later</span>
+          </button>
+        </div>
+        
+        <!-- Enhanced countdown timer -->
+        <div class="urgency-section">
+          <div class="countdown-container">
+            <div class="countdown-icon">⏰</div>
+            <div class="countdown-text">
+              <span class="countdown-label">Offer expires in:</span>
+              <span class="countdown-timer">{{ displayTime }}</span>
+            </div>
+          </div>
+          <div class="urgency-pulse"></div>
+        </div>
+        
+        <!-- Progress indicators -->
+        <div class="offer-indicators">
+          <div class="indicator" 
+               *ngFor="let offer of offers; let i = index"
+               [class.active]="i === currentOfferIndex"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

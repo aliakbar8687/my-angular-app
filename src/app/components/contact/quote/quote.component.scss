@@ -1,0 +1,254 @@
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .quote-section {
+            padding: 60px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: rgb(8, 8, 8);
+        }
+
+        .section-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quote-box {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .quote-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .quote-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        .quote-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 300px;
+            align-items: center;
+        }
+
+        .quote-text-side {
+            padding: 40px;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 4rem;
+            color: #667eea;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        blockquote {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin: 20px 0;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-meta h3 {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .quote-meta p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .quote-image-side {
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1667366467650-3ba60387482f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBibHVyfGVufDB8fDB8fHww');
+            opacity: 0.3;
+        }
+
+        .sap-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .company-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .company-logo h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .quote-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .quote-image-side {
+                order: -1;
+                padding: 30px;
+            }
+            
+            .quote-image {
+                height: 200px;
+            }
+            
+            .section-header h1 {
+                font-size: 2rem;
+            }
+            
+            .quote-text-side {
+                padding: 30px;
+            }
+            
+            blockquote {
+                font-size: 1.1rem;
+            }
+            
+            .quote-icon {
+                font-size: 3rem;
+                top: 15px;
+                left: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quote-section {
+                padding: 40px 15px;
+            }
+            
+            .section-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .quote-text-side {
+                padding: 25px;
+            }
+            
+            .quote-image-side {
+                padding: 25px;
+            }
+            
+            .quote-image {
+                height: 150px;
+            }
+            
+            .sap-icon {
+                font-size: 2rem;
+            }
+        }

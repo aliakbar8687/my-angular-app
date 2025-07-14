@@ -1,0 +1,40 @@
+<section class="mobile-development-poster">
+  <div class="poster-grid">
+    <!-- Left side: Images with overlay content -->
+    <div class="poster-images">
+      <div class="image-box img1">
+        <div class="main-text">Android & iOS Apps</div>
+        <div class="corner-text">Native & Cross</div>
+      </div>
+      <div class="image-box img2">
+        <div class="main-text">Flutter | React Native</div>
+        <div class="corner-text">Cross Platform</div>
+      </div>
+      <div class="image-box img3">
+        <div class="main-text">UI/UX Design</div>
+        <div class="corner-text">Seamless UI</div>
+      </div>
+    </div>
+
+    <!-- Right side: Content -->
+    <div class="poster-content">
+      <h2>Mobile App Development Training by Syvaxia</h2>
+      <p>
+        The mobile-first world demands powerful and responsive mobile applications. Our Mobile App Development course equips you with the skills needed to build native and cross-platform mobile apps with hands-on projects and expert mentorship.
+      </p>
+
+      <h3>Career Opportunities</h3>
+      <ul>
+        <li>Mobile App Developer (iOS/Android/Hybrid)</li>
+        <li>Cross-Platform Developer (Flutter/React Native)</li>
+        <li>UI/UX Mobile Designer</li>
+        <li>Freelance App Developer for Startups</li>
+      </ul>
+
+      <h3>Technologies Covered</h3>
+      <ul class="tech-stack">
+        <li *ngFor="let tech of technologies">{{ tech }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

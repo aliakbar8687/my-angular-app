@@ -1,0 +1,183 @@
+<!-- Courses Section - Premium Corporate Design -->
+<section class="courses-section" id="courses">
+  <div class="courses-section__container">
+    <!-- Section Header -->
+<div class="courses-section__header">
+  <div class="courses-section__header-content">
+    <span class="courses-section__subtitle">PROFESSIONAL DEVELOPMENT</span>
+    <h2 class="courses-section__title">
+      Our Premium <span>Training Courses</span>
+    </h2>
+    <p class="courses-section__description">
+      Enhance your skills with our comprehensive technology and SAP courses designed for professionals and organizations seeking excellence. Join thousands of learners advancing their careers.
+    </p>
+
+  </div>
+  
+  <div class="courses-section__header-image">
+    <div class="courses-section__header-image-container">
+      <img 
+        src="https://img.freepik.com/free-photo/portrait-professor-work-educational-system_23-2151737253.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740" 
+        alt="Professional training and development"
+      />
+    </div>
+  </div>
+</div>
+
+    <!-- Course Cards Grid -->
+    <div class="courses-grid">
+      <div 
+        class="course-card" 
+        *ngFor="let course of displayedCourses; let i = index"
+        [class.course-card--expanded]="expandedCard === i">
+        
+        <!-- Card Content -->
+        <div class="course-card__content">
+          <!-- Instructor Avatar -->
+          <!-- <div class="course-card__avatar">
+            <img [src]="course.instructorImage" [alt]="course.instructorName" class="course-card__avatar-img" />
+            <div class="course-card__avatar-badge">
+              <span class="course-card__badge course-card__badge--level">{{ course.level }}</span>
+            </div>
+          </div> -->
+
+          <!-- Course Header -->
+          <div class="course-card__header">
+            <div class="course-card__category">
+              <span class="course-card__category-text">{{ course.category | titlecase }}</span>
+              <span class="course-card__badge course-card__badge--popular" *ngIf="course.isPopular">Popular</span>
+              <span class="course-card__badge course-card__badge--new" *ngIf="course.isNew">New</span>
+            </div>
+            <h3 class="course-card__title">{{ course.title }}</h3>
+          </div>
+
+          <!-- Course Meta Info -->
+          <div class="course-card__meta">
+            <div class="course-card__rating">
+              <div class="course-card__stars">
+                <span class="course-card__star" *ngFor="let star of getStarArray(course.rating)" 
+                   [class.course-card__star--filled]="star <= course.rating">★</span>
+              </div>
+              <span class="course-card__rating-text">{{ course.rating }} ({{ course.reviews }})</span>
+            </div>
+            <div class="course-card__duration">
+              <i class="course-card__icon">🕐</i>
+              <span>{{ course.duration }}</span>
+            </div>
+            <div class="course-card__students">
+              <i class="course-card__icon">👥</i>
+              <span>{{ course.students }} students</span>
+            </div>
+          </div>
+
+          <!-- Course Preview -->
+          <div class="course-card__preview">
+            <p class="course-card__description">{{ getShortDescription(course.description) }}</p>
+          </div>
+
+          <!-- Instructor Info -->
+          <!-- <div class="course-card__instructor">
+            <span class="course-card__instructor-label">Instructor:</span>
+            <span class="course-card__instructor-name">{{ course.instructorName }}</span>
+          </div> -->
+
+          <!-- Action Button -->
+          <div class="course-card__actions">
+            <button 
+              class="course-card__btn course-card__btn--details" 
+              (click)="toggleCardExpansion(i)"
+              [attr.aria-expanded]="expandedCard === i">
+              <span>{{ expandedCard === i ? 'Hide Details' : 'View Details' }}</span>
+              <i class="course-card__btn-icon" [class.course-card__btn-icon--expanded]="expandedCard === i">▼</i>
+            </button>
+          </div>
+
+          <!-- Expanded Content -->
+          <div class="course-card__expanded-content" *ngIf="expandedCard === i" [@slideDown]>
+            <div class="course-card__full-description">
+              <h4 class="course-card__section-title">Course Overview</h4>
+              <p>{{ course.description }}</p>
+            </div>
+
+            <div class="course-card__features">
+              <h4 class="course-card__section-title">Key Features</h4>
+              <ul class="course-card__features-list">
+                <li class="course-card__feature" *ngFor="let feature of course.features">
+                  <span class="course-card__feature-icon">✓</span>
+                  <span>{{ feature }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="course-card__stats">
+              <div class="course-card__stats-grid">
+                <div class="course-card__stat">
+                  <span class="course-card__stat-icon">📊</span>
+                  <span class="course-card__stat-value">{{ course.level }}</span>
+                  <span class="course-card__stat-label">Level</span>
+                </div>
+                <div class="course-card__stat">
+                  <span class="course-card__stat-icon">🏆</span>
+                  <span class="course-card__stat-value">Yes</span>
+                  <span class="course-card__stat-label">Certificate</span>
+                </div>
+                <div class="course-card__stat">
+                  <span class="course-card__stat-icon">💼</span>
+                  <span class="course-card__stat-value">Included</span>
+                  <span class="course-card__stat-label">Job Support</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="course-card__enroll">
+              <button class="course-card__btn course-card__btn--enroll" (click)="enrollInCourse(course.id)">
+                <span>Enroll Now</span>
+                <i class="course-card__btn-icon">→</i>
+              </button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load More Section -->
+    <div class="courses-section__load-more" *ngIf="hasMoreCourses()">
+      <button class="courses-section__load-btn" (click)="loadMoreCourses()">
+        <span>Load More Courses</span>
+        <i class="courses-section__load-icon">📚</i>
+      </button>
+      <p class="courses-section__load-info">
+        Showing {{ displayedCourses.length }} of {{ filteredCourses.length }} courses
+      </p>
+    </div>
+
+    <!-- Statistics Section -->
+    <div class="courses-stats">
+      <div class="courses-stats__container">
+        <h3 class="courses-stats__title">Our Achievements</h3>
+        <div class="courses-stats__grid">
+          <div class="courses-stats__item">
+            <div class="courses-stats__number">{{ animatedTotalCourses }}+</div>
+            <div class="courses-stats__label">Total Courses</div>
+            <div class="courses-stats__icon">📚</div>
+          </div>
+          <div class="courses-stats__item">
+            <div class="courses-stats__number">{{ animatedTotalStudents }}+</div>
+            <div class="courses-stats__label">Happy Students</div>
+            <div class="courses-stats__icon">🎓</div>
+          </div>
+          <div class="courses-stats__item">
+            <div class="courses-stats__number">{{ animatedTotalInstructors }}+</div>
+            <div class="courses-stats__label">Expert Instructors</div>
+            <div class="courses-stats__icon">👨‍🏫</div>
+          </div>
+          <div class="courses-stats__item">
+            <div class="courses-stats__number">{{ animatedCompletionRate }}%</div>
+            <div class="courses-stats__label">Completion Rate</div>
+            <div class="courses-stats__icon">✅</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+<section class="webdev-section">
+  <div class="poster-layout">
+    <!-- Images Column -->
+    <div class="images-column">
+      <div class="image-card" *ngFor="let img of images">
+        <img [src]="img.url" [alt]="img.title" />
+        <div class="overlay-text">
+          <h3>{{ img.title }}</h3>
+          <p>{{ img.caption }}</p>
+        </div>
+        <div class="corner-note">{{ img.cornerNote }}</div>
+      </div>
+    </div>
+
+    <!-- Content Column -->
+    <div class="content-column">
+      <div class="intro">
+        <h2>Web Development Training by Syvaxia</h2>
+        <p>Join Syvaxia's intensive training program to master frontend, backend, and full-stack technologies with real-world projects.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature" *ngFor="let service of webDevServices">
+          <span class="icon">{{ service.icon }}</span>
+          <div>
+            <h4>{{ service.title }}</h4>
+            <p>{{ service.description }}</p>
+          </div>
+        </div>
+        <!-- <button class="enroll-btn">+ Enroll Now</button> -->
+      </div>
+    </div>
+  </div>
+</section>

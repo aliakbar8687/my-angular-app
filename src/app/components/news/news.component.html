@@ -1,0 +1,183 @@
+<!-- News Section -->
+<section class="news-section" id="news">
+  <!-- Background Elements -->
+  <div class="bg-elements">
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+    <div class="grid-pattern"></div>
+  </div>
+
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header" [@titleAnimation]>
+      <div class="header-decoration">
+        <span class="decoration-line"></span>
+        <span class="decoration-dot"></span>
+        <span class="decoration-line"></span>
+      </div>
+      <h2 class="section-title">
+        <span class="title-gradient">Latest News</span>
+        <span class="title-accent">& Updates</span>
+      </h2>
+      <p class="section-subtitle">
+        Stay updated with our latest innovations and industry insights
+      </p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="category-filter" [@slideInUp]>
+      <div class="filter-container">
+        <button 
+          *ngFor="let category of categories; trackBy: trackByCategoryId"
+          class="filter-btn"
+          [class.active]="selectedCategory === category.id"
+          (click)="filterNews(category.id)"
+          [@cardHover]>
+          <span class="filter-icon">{{ category.icon }}</span>
+          <span class="filter-text">{{ category.name }}</span>
+          <div class="filter-ripple"></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Featured News -->
+    <div *ngIf="featuredNews" class="featured-section" [@slideInUp]>
+      <article class="featured-card" [@cardHover]>
+        <div class="featured-image-container">
+          <img [src]="featuredNews.image" [alt]="featuredNews.title" class="featured-image">
+          <div class="featured-overlay">
+            <div class="featured-gradient"></div>
+            <div class="featured-badge">
+              <span class="badge-icon">⭐</span>
+              <span class="badge-text">Featured</span>
+            </div>
+          </div>
+        </div>
+        <div class="featured-content">
+          <div class="featured-meta">
+            <span class="meta-category">
+              <span class="category-icon">{{ getCategoryIcon(featuredNews.category) }}</span>
+              {{ getCategoryName(featuredNews.category) }}
+            </span>
+            <span class="meta-divider">•</span>
+            <span class="meta-date">{{ formatDate(featuredNews.publishDate) }}</span>
+            <span class="meta-divider">•</span>
+            <span class="meta-author">{{ featuredNews.author }}</span>
+          </div>
+          <h3 class="featured-title">{{ featuredNews.title }}</h3>
+          <p class="featured-excerpt">{{ featuredNews.excerpt }}</p>
+          <div class="featured-tags">
+            <span *ngFor="let tag of featuredNews.tags" class="featured-tag">
+              {{ tag }}
+            </span>
+          </div>
+          <!-- <button class="featured-read-more">
+            <span>Read Full Story</span>
+            <svg class="read-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/>
+            </svg>
+          </button> -->
+        </div>
+      </article>
+    </div>
+
+    <!-- News Grid -->
+    <div class="news-grid-container">
+      <div class="news-grid" [@staggeredFadeIn]="filteredNews.length">
+        <article 
+          *ngFor="let news of filteredNews; trackBy: trackByNewsId; let i = index"
+          class="news-card"
+          [@cardHover]
+          [style.animation-delay]="getAnimationDelay(i)">
+          
+          <div class="card-inner">
+            <!-- Card Image -->
+            <div class="card-image-container">
+              <img [src]="news.image" [alt]="news.title" class="card-image">
+              <div class="image-overlay">
+                <div class="category-badge">
+                  <span class="badge-icon">{{ getCategoryIcon(news.category) }}</span>
+                  <span class="badge-text">{{ getCategoryName(news.category) }}</span>
+                </div>
+                <button class="quick-read-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="meta-date">{{ formatDate(news.publishDate) }}</span>
+                <span class="meta-author">{{ news.author }}</span>
+              </div>
+              
+              <h3 class="card-title">{{ news.title }}</h3>
+              <p class="card-excerpt">{{ news.excerpt }}</p>
+              
+              <div class="card-tags">
+                <span *ngFor="let tag of news.tags" class="card-tag">{{ tag }}</span>
+              </div>
+            </div>
+
+            <!-- Card Footer -->
+            <div class="card-footer">
+              <!-- <button class="read-more-btn">
+                <span>Read More</span>
+                <div class="btn-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </button> -->
+              <div class="social-actions">
+                <button class="action-btn like-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                  </svg>
+                </button>
+                <button class="action-btn share-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Glow Effect -->
+          <div class="card-glow"></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Load More Button -->
+    <div *ngIf="hasMoreNews" class="load-more-container" [@slideInUp]>
+      <button 
+        class="load-more-btn"
+        [class.loading]="loading"
+        (click)="loadMoreNews()"
+        [disabled]="loading">
+        <span *ngIf="!loading" class="btn-content">
+          <span class="btn-text">Load More Stories</span>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </span>
+        <span *ngIf="loading" class="loading-content">
+          <div class="loading-spinner"></div>
+          <span class="loading-text">Loading...</span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator" [class.visible]="isScrolled">
+    <div class="scroll-line"></div>
+  </div>
+</section>

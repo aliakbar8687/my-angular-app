@@ -1,0 +1,517 @@
+// Variables
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$success-color: #4caf50;
+$error-color: #f44336;
+$warning-color: #ff9800;
+$text-primary: #333;
+$text-secondary: #666;
+$text-light: #999;
+$white: #ffffff;
+$light-gray: #f5f5f5;
+$border-color: #e0e0e0;
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.15);
+$shadow-dark: rgba(0, 0, 0, 0.2);
+
+// Breakpoints
+$breakpoints: (
+  'mobile': 480px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'large': 1200px
+);
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin gradient-bg($color1: $primary-color, $color2: $secondary-color) {
+  background: linear-gradient(135deg, $color1 0%, $color2 100%);
+}
+
+@mixin glass-effect($opacity: 0.95) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@mixin button-hover-effect {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba($primary-color, 0.3);
+}
+
+@mixin input-focus-effect {
+  border-color: $primary-color;
+  box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  transform: translateY(-1px);
+}
+
+// Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: $text-primary;
+  @include gradient-bg();
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Main login container
+.login-container {
+  margin-top: 100px;
+  width: 100%;
+  max-width: 450px;
+  padding: 2rem;
+  
+  @include respond-to('tablet') {
+    margin-top: 50px;
+    max-width: 400px;
+    padding: 1.5rem;
+  }
+  
+  @include respond-to('mobile') {
+    margin-top: 30px;
+    max-width: 350px;
+    padding: 1rem;
+  }
+
+  // Form styling
+  form {
+    @include glass-effect();
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px $shadow-medium;
+    position: relative;
+    overflow: hidden;
+    
+    @include respond-to('tablet') {
+      padding: 2.5rem;
+      border-radius: 15px;
+    }
+    
+    @include respond-to('mobile') {
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    // Animated background overlay
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      @include gradient-bg();
+      opacity: 0.05;
+      transform: rotate(45deg);
+      z-index: 0;
+    }
+
+    // Ensure content is above overlay
+    * {
+      position: relative;
+      z-index: 1;
+    }
+
+    // Title styling
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      font-weight: 700;
+      @include gradient-bg();
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 2px 4px $shadow-light;
+      
+      @include respond-to('tablet') {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      @include respond-to('mobile') {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+      }
+
+      // Add subtle animation
+      animation: fadeInDown 0.8s ease-out;
+    }
+  }
+}
+
+// Form groups
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  
+  @include respond-to('mobile') {
+    margin-bottom: 1.2rem;
+  }
+
+  // Label styling
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: $text-primary;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    
+    @include respond-to('mobile') {
+      font-size: 0.9rem;
+    }
+  }
+
+  // Input styling
+  input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 2px solid $border-color;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    
+    @include respond-to('mobile') {
+      padding: 0.9rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    &:focus {
+      outline: none;
+      @include input-focus-effect();
+      background: $white;
+    }
+
+    &:valid {
+      border-color: $success-color;
+    }
+
+    &.ng-invalid.ng-touched {
+      border-color: $error-color;
+      box-shadow: 0 0 0 3px rgba($error-color, 0.1);
+    }
+
+    // Placeholder styling
+    &::placeholder {
+      color: $text-light;
+      font-size: 0.9rem;
+    }
+
+    // Password field specific styling
+    &[type="password"] {
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  // Input icons (optional enhancement)
+  &.has-icon {
+    position: relative;
+    
+    input {
+      padding-left: 3rem;
+    }
+    
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $text-light;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Error messages
+.error {
+  color: $error-color;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  display: block;
+  animation: slideInUp 0.3s ease-out;
+  font-weight: 500;
+  
+  @include respond-to('mobile') {
+    font-size: 0.8rem;
+  }
+}
+
+.error-message {
+  background: rgba($error-color, 0.1);
+  color: $error-color;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  border-left: 4px solid $error-color;
+  animation: slideInUp 0.3s ease-out;
+  font-weight: 500;
+  
+  @include respond-to('mobile') {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+// Submit button
+button[type="submit"] {
+  width: 100%;
+  padding: 1.2rem;
+  @include gradient-bg();
+  color: $white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  
+  @include respond-to('mobile') {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  // Hover effect
+  &:hover:not(:disabled) {
+    @include button-hover-effect();
+  }
+
+  // Active effect
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  // Disabled state
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: $text-light;
+    
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  // Loading spinner (optional enhancement)
+  &.loading {
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      margin: auto;
+      border: 2px solid transparent;
+      border-top-color: $white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+}
+
+// Additional enhancements
+.forgot-password {
+  text-align: center;
+  margin-top: 1.5rem;
+  
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: $secondary-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Remember me checkbox (optional)
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  
+  input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+    transform: scale(1.1);
+  }
+  
+  label {
+    margin: 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+}
+
+// Social login buttons (optional)
+.social-login {
+  margin-top: 2rem;
+  text-align: center;
+  
+  .divider {
+    position: relative;
+    margin: 1.5rem 0;
+    text-align: center;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: $border-color;
+    }
+    
+    span {
+      background: $white;
+      padding: 0 1rem;
+      color: $text-light;
+      font-size: 0.85rem;
+    }
+  }
+  
+  .social-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    
+    .social-btn {
+      flex: 1;
+      padding: 0.8rem;
+      border: 2px solid $border-color;
+      background: $white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        border-color: $primary-color;
+        transform: translateY(-1px);
+      }
+      
+      &.google {
+        &:hover {
+          border-color: #db4437;
+        }
+      }
+      
+      &.facebook {
+        &:hover {
+          border-color: #3b5998;
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Form validation states
+.ng-valid.ng-touched {
+  input {
+    border-color: $success-color;
+  }
+}
+
+.ng-invalid.ng-touched {
+  input {
+    border-color: $error-color;
+  }
+}
+
+// Custom scrollbar for mobile
+@include respond-to('mobile') {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba($primary-color, 0.3);
+    border-radius: 2px;
+  }
+}
+
+// Focus trap for accessibility
+.login-container:focus-within {
+  form {
+    box-shadow: 0 25px 50px $shadow-medium;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .login-container form {
+    border: 3px solid $text-primary;
+  }
+  
+  input {
+    border-width: 3px;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

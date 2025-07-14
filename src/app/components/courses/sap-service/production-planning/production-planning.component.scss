@@ -1,0 +1,430 @@
+// Corporate WordPress Poster Layout - SCSS
+// Clean, elegant, and fully responsive design
+
+.pp-section {
+  margin-top: 100px;
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  
+  .pp-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    
+    // Left side - Image Grid
+    .pp-images {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      
+      .image-box {
+        position: relative;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(28, 55, 90, 0.8), rgba(52, 144, 220, 0.6));
+          z-index: 1;
+        }
+        
+        .overlay-text {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          right: 20px;
+          color: #ffffff;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 1.3;
+          z-index: 2;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          
+          .corner-note {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #e8f4f8;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+    }
+    
+    // Right side - Content
+    .pp-content {
+      .section-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1c375a;
+        margin-bottom: 24px;
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+      }
+      
+      .intro {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #4a5568;
+        margin-bottom: 32px;
+        text-align: justify;
+      }
+      
+      .career-paths {
+        margin-bottom: 40px;
+        
+        h3 {
+          font-size: 18px;
+          font-weight: 600;
+          color: #1c375a;
+          margin-bottom: 12px;
+          margin-top: 24px;
+          
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+        
+        p {
+          font-size: 15px;
+          line-height: 1.6;
+          color: #4a5568;
+          margin-bottom: 16px;
+          text-align: justify;
+        }
+      }
+      
+      .accordion {
+        .accordion-item {
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          margin-bottom: 8px;
+          background-color: #ffffff;
+          overflow: hidden;
+          
+          .accordion-header {
+            padding: 16px 20px;
+            background-color: #f7fafc;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: #1c375a;
+            font-size: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            
+            &:hover {
+              background-color: #edf2f7;
+            }
+            
+            .toggle-icon {
+              font-size: 18px;
+              font-weight: 600;
+              color: #3490dc;
+              width: 20px;
+              text-align: center;
+            }
+          }
+          
+          .accordion-body {
+            padding: 20px;
+            background-color: #ffffff;
+            border-top: none;
+            
+            ul {
+              margin: 0;
+              padding-left: 20px;
+              
+              li {
+                font-size: 14px;
+                line-height: 1.5;
+                color: #4a5568;
+                margin-bottom: 8px;
+                
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
+            }
+            
+            p {
+              font-size: 14px;
+              line-height: 1.5;
+              color: #4a5568;
+              margin: 0;
+              font-style: italic;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Tablet Responsive Design
+@media screen and (max-width: 1024px) {
+  .pp-section {
+    padding: 40px 0;
+    
+    .pp-wrapper {
+      max-width: 800px;
+      gap: 40px;
+      padding: 0 16px;
+      
+      .pp-images {
+        .image-box {
+          height: 180px;
+          
+          .overlay-text {
+            font-size: 16px;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            
+            .corner-note {
+              font-size: 11px;
+            }
+          }
+        }
+      }
+      
+      .pp-content {
+        .section-title {
+          font-size: 28px;
+          margin-bottom: 20px;
+        }
+        
+        .intro {
+          font-size: 15px;
+          margin-bottom: 28px;
+        }
+        
+        .career-paths {
+          margin-bottom: 32px;
+          
+          h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+          }
+          
+          p {
+            font-size: 14px;
+            margin-bottom: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile Responsive Design
+@media screen and (max-width: 768px) {
+  .pp-section {
+    margin-top: 100px;
+    padding: 30px 0;
+    
+    .pp-wrapper {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 0 12px;
+      
+      .pp-images {
+        order: 2;
+        gap: 16px;
+        
+        .image-box {
+          height: 160px;
+          border-radius: 6px;
+          
+          .overlay-text {
+            font-size: 15px;
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
+            
+            .corner-note {
+              font-size: 10px;
+              margin-top: 3px;
+            }
+          }
+        }
+      }
+      
+      .pp-content {
+        order: 1;
+        
+        .section-title {
+          font-size: 24px;
+          margin-bottom: 18px;
+          text-align: center;
+        }
+        
+        .intro {
+          font-size: 14px;
+          margin-bottom: 24px;
+          text-align: left;
+        }
+        
+        .career-paths {
+          margin-bottom: 28px;
+          
+          h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            margin-top: 18px;
+          }
+          
+          p {
+            font-size: 13px;
+            margin-bottom: 12px;
+            text-align: left;
+          }
+        }
+        
+        .accordion {
+          .accordion-item {
+            margin-bottom: 6px;
+            border-radius: 6px;
+            
+            .accordion-header {
+              padding: 14px 16px;
+              font-size: 14px;
+              
+              .toggle-icon {
+                font-size: 16px;
+              }
+            }
+            
+            .accordion-body {
+              padding: 16px;
+              
+              ul {
+                padding-left: 16px;
+                
+                li {
+                  font-size: 13px;
+                  margin-bottom: 6px;
+                }
+              }
+              
+              p {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Extra Small Mobile
+@media screen and (max-width: 480px) {
+  .pp-section {
+    .pp-wrapper {
+      padding: 0 8px;
+      
+      .pp-images {
+        .image-box {
+          height: 140px;
+          
+          .overlay-text {
+            font-size: 14px;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+          }
+        }
+      }
+      
+      .pp-content {
+        .section-title {
+          font-size: 22px;
+        }
+        
+        .intro {
+          font-size: 13px;
+        }
+        
+        .career-paths {
+          h3 {
+            font-size: 15px;
+          }
+          
+          p {
+            font-size: 12px;
+          }
+        }
+        
+        .accordion {
+          .accordion-item {
+            .accordion-header {
+              padding: 12px 14px;
+              font-size: 13px;
+            }
+            
+            .accordion-body {
+              padding: 14px;
+              
+              ul li {
+                font-size: 12px;
+              }
+              
+              p {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Print Styles
+@media print {
+  .pp-section {
+    margin-top: 0;
+    padding: 20px 0;
+    background-color: #ffffff;
+    
+    .pp-wrapper {
+      max-width: 100%;
+      padding: 0;
+      gap: 30px;
+      
+      .pp-images {
+        .image-box {
+          height: 150px;
+          box-shadow: none;
+          border: 1px solid #e2e8f0;
+        }
+      }
+    }
+  }
+}

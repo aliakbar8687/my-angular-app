@@ -1,0 +1,188 @@
+<div class="sap-clouds-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <div class="container">
+      <h1 class="page-title">SAP Cloud Solutions Training</h1>
+      <p class="page-subtitle">
+        Master the complete SAP cloud ecosystem with our comprehensive training programs
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container main-content">
+    <div class="solutions-sidebar">
+      <h3 class="sidebar-title">Cloud Solutions</h3>
+      <div class="solutions-list">
+        <div 
+          *ngFor="let solution of cloudSolutions" 
+          class="solution-item"
+          [class.active]="selectedSolution?.id === solution.id"
+          (click)="selectSolution(solution)">
+          <div class="solution-icon">
+            <i [class]="getIconClass(solution.icon)"></i>
+          </div>
+          <div class="solution-info">
+            <h4 class="solution-name">{{ solution.name }}</h4>
+            <p class="solution-brief">{{ solution.description | slice:0:80 }}...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solution Details -->
+    <div class="solution-details" *ngIf="selectedSolution">
+      <!-- Solution Header -->
+      <div class="solution-header">
+        <div class="solution-title-section">
+          <i [class]="getIconClass(selectedSolution.icon)" class="solution-main-icon"></i>
+          <div>
+            <h2 class="solution-title">{{ selectedSolution.name }}</h2>
+            <p class="solution-description">{{ selectedSolution.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="tabs-navigation">
+        <button 
+          class="tab-button"
+          [class.active]="activeTab === 'overview'"
+          (click)="setActiveTab('overview')">
+          Overview
+        </button>
+        <button 
+          class="tab-button"
+          [class.active]="activeTab === 'features'"
+          (click)="setActiveTab('features')">
+          Features
+        </button>
+        <button 
+          class="tab-button"
+          [class.active]="activeTab === 'training'"
+          (click)="setActiveTab('training')">
+          Training
+        </button>
+        <button 
+          class="tab-button"
+          [class.active]="activeTab === 'resources'"
+          (click)="setActiveTab('resources')">
+          Resources
+        </button>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="tab-content">
+        <!-- Overview Tab -->
+        <div *ngIf="activeTab === 'overview'" class="tab-pane">
+          <div class="overview-content">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="info-card">
+                  <h4>Key Features</h4>
+                  <ul class="feature-list">
+                    <li *ngFor="let feature of selectedSolution.features.slice(0, 4)">
+                      <i class="fas fa-check-circle"></i>
+                      {{ feature }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-card">
+                  <h4>Common Use Cases</h4>
+                  <ul class="use-case-list">
+                    <li *ngFor="let useCase of selectedSolution.useCases">
+                      <i class="fas fa-arrow-right"></i>
+                      {{ useCase }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Tab -->
+        <div *ngIf="activeTab === 'features'" class="tab-pane">
+          <div class="features-grid">
+            <div *ngFor="let feature of selectedSolution.features" class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-cog"></i>
+              </div>
+              <h5 class="feature-title">{{ feature }}</h5>
+              <p class="feature-description">
+                Comprehensive {{ feature.toLowerCase() }} capabilities designed for enterprise needs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Training Tab -->
+        <div *ngIf="activeTab === 'training'" class="tab-pane">
+          <div class="training-modules">
+            <h4 class="modules-title">Available Training Modules</h4>
+            <div *ngFor="let module of trainingModules" class="training-card">
+              <div class="training-header">
+                <h5 class="training-title">{{ module.title }}</h5>
+                <span class="level-badge" [class]="getLevelBadgeClass(module.level)">
+                  {{ module.level }}
+                </span>
+              </div>
+              <p class="training-description">{{ module.description }}</p>
+              <div class="training-meta">
+                <span class="duration">
+                  <i class="fas fa-clock"></i>
+                  {{ module.duration }}
+                </span>
+              </div>
+              <div class="training-topics">
+                <strong>Topics Covered:</strong>
+                <ul class="topics-list">
+                  <li *ngFor="let topic of module.topics">{{ topic }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resources Tab -->
+        <div *ngIf="activeTab === 'resources'" class="tab-pane">
+          <div class="resources-section">
+            <h4>Learning Resources</h4>
+            <div class="resources-grid">
+              <div class="resource-card">
+                <div class="resource-icon">
+                  <i class="fas fa-book"></i>
+                </div>
+                <h5>Official Documentation</h5>
+                <p>Comprehensive documentation and developer guides</p>
+              </div>
+              <div class="resource-card">
+                <div class="resource-icon">
+                  <i class="fas fa-download"></i>
+                </div>
+                <h5>Quick Start Guide</h5>
+                <p>Get started quickly with step-by-step instructions</p>
+              </div>
+              <div class="resource-card">
+                <div class="resource-icon">
+                  <i class="fas fa-video"></i>
+                </div>
+                <h5>Video Tutorials</h5>
+                <p>Watch practical demonstrations and tutorials</p>
+              </div>
+              <div class="resource-card">
+                <div class="resource-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <h5>Community Forum</h5>
+                <p>Connect with other learners and experts</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
