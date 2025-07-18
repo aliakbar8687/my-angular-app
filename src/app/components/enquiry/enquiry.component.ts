@@ -34,7 +34,13 @@ export class EnquiryComponent implements OnInit, OnDestroy {
     { value: '5', label: '5 Years Experience' },
     { value: '6+', label: '6+ Years Experience' }
   ];
-
+preferredCourses = [
+  { value: 'full-stack-development', label: 'Full Stack Development' },
+  { value: 'data-science-and-analytics', label: 'Data Science and Analytics' },
+  { value: 'cloud', label: 'Cloud' },
+  { value: 'cyber-security', label: 'Cyber Security' },
+  { value: 'sap-coming-soon', label: 'SAP - Coming Soon' }
+];
   constructor(
     private fb: FormBuilder,
     private enquiryService: EnquiryService,
@@ -86,6 +92,7 @@ export class EnquiryComponent implements OnInit, OnDestroy {
         Validators.required, 
         Validators.pattern(/^[6-9]\d{9}$/)
       ]],
+      preferredCourse: ['', Validators.required],
       agreeToTerms: [false, Validators.requiredTrue]
     });
   }
@@ -233,6 +240,7 @@ export class EnquiryComponent implements OnInit, OnDestroy {
       city: 'City',
       graduationYear: 'Graduation Year',
       experience: 'Experience Level',
+      preferredCourse: 'Preferred Course',
       mobileNumber: 'Mobile Number',
       message: 'Message',
       agreeToTerms: 'Terms and Privacy Policy Agreement'

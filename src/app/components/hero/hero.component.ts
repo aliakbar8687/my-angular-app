@@ -15,18 +15,18 @@ export class HeroComponent implements OnInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
   
 slides = [ {
-  title: 'SAP Training & Internship Program',
-  subtitle: 'Internship in Dubai',
-  description: 'Kickstart your SAP career with expert-led training and real-time project experience in modules like SAP FICO, SAP MM, SAP ABAP, and more—designed for future SAP consultants and analysts.',
+  title: 'Training & Internship Programs',
+  subtitle: 'Gain real-world experience with internships in Dubai.',
+  description: 'Kickstart your tech career with expert-led training and real-time project experience in high-demand domains like Data Science, Business Analytics, Cloud Computing, and more.',
   image: 'https://img.freepik.com/premium-photo/portrait-indian-student-with-glasses-book_894067-17315.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740',
   ctaText: 'Apply for Internship',
   ctaLink: '#contact'
 }
 ,
   {
-    title: 'Master SAP with Industry Experts',
-    subtitle: 'Comprehensive SAP Training for Career Growth',
-    description: 'Get hands-on training in SAP FICO, MM, SD, ABAP, BASIS, S4/HANA and more with real-time projects and certification guidance. Ideal for individuals and working professionals.',
+title: 'Master SAP with Industry Experts (Coming Soon)',
+subtitle: 'Comprehensive SAP Training for Career Growth – Launching Soon',
+    description: 'SAP modules like FICO, MM, and ABAP launching soon—ideal for aspiring consultants and analysts. Get hands-on training with real-world scenarios and certification-focused guidance to boost your ERP career.',
     image: 'https://img.freepik.com/premium-photo/portrait-smiling-young-middle-eastern-female-college-student-holding-book-isolated-white-background_1362287-1661.jpg?uid=R155423574&ga=GA1.1.1529083375.1749758229&semt=ais_hybrid&w=740',
     ctaText: 'Explore  Courses',
     ctaLink: '#courses'
@@ -44,10 +44,10 @@ slides = [ {
 
 
   stats = [
-    { number: '500+', label: 'Projects Completed', targetNumber: 500, currentNumber: 0 },
-    { number: '1000+', label: 'Students Trained', targetNumber: 1000, currentNumber: 0 },
-    { number: '50+', label: 'Industry Partners', targetNumber: 50, currentNumber: 0 },
-    { number: '5+', label: 'Years of Excellence', targetNumber: 5, currentNumber: 0 }
+    { number: '10+', label: 'Trained Trainers', targetNumber: 10, currentNumber: 0 },
+    { number: '430+', label: 'Students Trained', targetNumber:430, currentNumber: 0 },
+    { number: '10+', label: 'Industry Partners', targetNumber: 10, currentNumber: 0 },
+    { number: '4+', label: 'Years of Excellence', targetNumber: 4, currentNumber: 0 }
   ];
 
   constructor() { }

@@ -26,7 +26,7 @@
     </div>
 
     <!-- Category Filter -->
-    <div class="category-filter" [@slideInUp]>
+    <!-- <div class="category-filter" [@slideInUp]>
       <div class="filter-container">
         <button 
           *ngFor="let category of categories; trackBy: trackByCategoryId"
@@ -39,10 +39,10 @@
           <div class="filter-ripple"></div>
         </button>
       </div>
-    </div>
+    </div> -->
 
     <!-- Featured News -->
-    <div *ngIf="featuredNews" class="featured-section" [@slideInUp]>
+    <!-- <div *ngIf="featuredNews" class="featured-section" [@slideInUp]>
       <article class="featured-card" [@cardHover]>
         <div class="featured-image-container">
           <img [src]="featuredNews.image" [alt]="featuredNews.title" class="featured-image">
@@ -72,18 +72,12 @@
               {{ tag }}
             </span>
           </div>
-          <!-- <button class="featured-read-more">
-            <span>Read Full Story</span>
-            <svg class="read-more-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/>
-            </svg>
-          </button> -->
         </div>
       </article>
-    </div>
+    </div> -->
 
     <!-- News Grid -->
-    <div class="news-grid-container">
+    <!-- <div class="news-grid-container">
       <div class="news-grid" [@staggeredFadeIn]="filteredNews.length">
         <article 
           *ngFor="let news of filteredNews; trackBy: trackByNewsId; let i = index"
@@ -92,7 +86,6 @@
           [style.animation-delay]="getAnimationDelay(i)">
           
           <div class="card-inner">
-            <!-- Card Image -->
             <div class="card-image-container">
               <img [src]="news.image" [alt]="news.title" class="card-image">
               <div class="image-overlay">
@@ -109,7 +102,6 @@
               </div>
             </div>
 
-            <!-- Card Content -->
             <div class="card-content">
               <div class="card-meta">
                 <span class="meta-date">{{ formatDate(news.publishDate) }}</span>
@@ -124,16 +116,7 @@
               </div>
             </div>
 
-            <!-- Card Footer -->
             <div class="card-footer">
-              <!-- <button class="read-more-btn">
-                <span>Read More</span>
-                <div class="btn-arrow">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </div>
-              </button> -->
               <div class="social-actions">
                 <button class="action-btn like-btn">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -149,14 +132,13 @@
             </div>
           </div>
 
-          <!-- Card Glow Effect -->
           <div class="card-glow"></div>
         </article>
       </div>
-    </div>
+    </div> -->
 
     <!-- Load More Button -->
-    <div *ngIf="hasMoreNews" class="load-more-container" [@slideInUp]>
+    <!-- <div *ngIf="hasMoreNews" class="load-more-container" [@slideInUp]>
       <button 
         class="load-more-btn"
         [class.loading]="loading"
@@ -173,11 +155,11 @@
           <span class="loading-text">Loading...</span>
         </span>
       </button>
-    </div>
+    </div> -->
   </div>
 
   <!-- Scroll Indicator -->
-  <div class="scroll-indicator" [class.visible]="isScrolled">
+  <!-- <div class="scroll-indicator" [class.visible]="isScrolled">
     <div class="scroll-line"></div>
-  </div>
+  </div> -->
 </section>

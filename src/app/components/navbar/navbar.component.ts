@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
           link: '#home',
           subItems: [
             { title: 'Our Story', link: 'story' },
-            { title: 'Team', link: 'team' },
+            // { title: 'Team', link: 'team' },
             { title: 'Mission & Vision', link: 'mission' },
           ],
         },
@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
       link: '#services',
       subItems: [
         { title: 'Our-Recruiter', link: 'our-recruiter' },
-        { title: 'Sap-Event', link: 'sap-event' },
+        // { title: 'Sap-Event', link: 'sap-event' },
         { title: 'Sap-Project-Go-Live', link: 'sap-project-go-live' },
       ],
     },
@@ -123,7 +123,7 @@ export class NavbarComponent implements OnInit {
         { title: 'Individual Training', link: 'individual' },
         { title: 'Online Courses', link: 'online' },
         { title: 'SAP End User Training', link: 'sap-enduser-training' },
-        { title: 'SAP Internship', link: 'sap-internship' },
+        { title: ' Internship', link: 'sap-internship' },
       ],
     },
     {
@@ -140,7 +140,7 @@ export class NavbarComponent implements OnInit {
       title: 'Contact',
       link: '#contact',
       subItems: [
-        { title: 'Get Quote', link: 'quote' },
+        // { title: 'Get Quote', link: 'quote' },
         { title: 'Support', link: 'support' },
         { title: 'Careers', link: 'careers' },
       ],

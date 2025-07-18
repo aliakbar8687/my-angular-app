@@ -140,6 +140,24 @@
             </div>
           </div>
 
+
+          <!-- Preferred Course -->
+<div class="form-group">
+  <label for="preferredCourse">Preferred Course *</label>
+  <select
+    id="preferredCourse"
+    formControlName="preferredCourse"
+    class="form-control"
+    [class.error]="isFieldInvalid('preferredCourse')"
+  >
+    <option value="">Select your preferred course</option>
+    <option *ngFor="let course of preferredCourses" [value]="course.value">{{ course.label }}</option>
+  </select>
+  <div *ngIf="isFieldInvalid('preferredCourse')" class="error-message">
+    {{ getFieldError('preferredCourse') }}
+  </div>
+</div>
+
           <!-- Mobile Number -->
           <div class="form-group full-width">
             <label for="mobileNumber">Mobile Number *</label>

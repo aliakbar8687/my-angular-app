@@ -18,9 +18,9 @@ export class CoursesComponent implements OnInit {
   expandedCard: number | null = null; // Track which card is expanded
 
   // Statistics with animated counters
-  totalCourses: number = 150;
-  totalStudents: number = 5000;
-  totalInstructors: number = 25;
+  totalCourses: number = 20;
+  totalStudents: number = 430;
+  totalInstructors: number =10;
   completionRate: number = 94;
   
   // Counter animations
@@ -44,75 +44,7 @@ export class CoursesComponent implements OnInit {
   loadCourses(): void {
     // Updated courses data with instructor information and all required properties
     this.courses = [
-      {
-        id: 1,
-        title: 'SAP Financial Accounting (FICO)',
-        description: 'Master SAP FICO module with comprehensive training on financial processes and accounting. Learn to handle financial transactions, create financial reports, and manage accounting processes efficiently. This course covers all aspects of financial accounting including general ledger, accounts payable, accounts receivable, and asset accounting.',
-        category: 'sap-erp',
-        level: 'Intermediate',
-        duration: '8 weeks',
-        image: 'assets/images/SAP Financial Accounting (FICO).jpg',
-        rating: 4.8,
-        reviews: 234,
-        students: 1250,
-        instructorName: 'Dr. Rajesh Kumar',
-        instructorImage: 'https://media.istockphoto.com/id/2160473960/photo/happy-satisfied-math-teacher-in-elementary-class.jpg?s=612x612&w=0&k=20&c=zaosJRQ0l2dBIjy-DLc5wAFdONtg-_78Q-FIzxjjIoo=',
-        features: ['Live Projects', 'Certification', 'Job Support', 'Expert Guidance', 'Real-time Scenarios', 'Interview Preparation'],
-        isPopular: true,
-        isNew: false
-      },
-      {
-        id: 2,
-        title: 'SAP Material Management (MM)',
-        description: 'Learn procurement processes, inventory management, and vendor management in SAP MM. Understand purchase orders, goods receipt, and invoice verification processes. Cover material requirements planning, vendor evaluation, and procurement cycle management.',
-        category: 'sap-erp',
-        level: 'Beginner',
-        duration: '6 weeks',
-        image: 'https://admin.ducatindia.com/tutorial/technology/1715000293724SAP%20MM.png',
-        rating: 4.7,
-        reviews: 189,
-        students: 850,
-        instructorName: 'Priya Sharma',
-        instructorImage: 'https://media.istockphoto.com/id/1310208267/photo/portrait-of-indian-woman-as-a-teacher-in-sari-standing-isolated-over-white-background-stock.jpg?s=612x612&w=0&k=20&c=UpkNhqazjP4CNvndwC_Qus1SwAEc1ogPOGpIDmWd4bk=',
-        features: ['Hands-on Training', 'Real-time Projects', 'Industry Expert', 'Practical Labs', 'Case Studies', 'Best Practices'],
-        isPopular: false,
-        isNew: false
-      },
-      {
-        id: 3,
-        title: 'SAP S/4 HANA Financial Accounting',
-        description: 'Advanced S/4 HANA finance module covering new functionalities and simplified processes. Experience the next-generation ERP with in-memory computing capabilities. Learn about universal journal, central finance, and embedded analytics.',
-        category: 'sap-s4hana',
-        level: 'Advanced',
-        duration: '10 weeks',
-        image: 'assets/images/SAP S4 HANA Financial Accounting.jpg',
-        rating: 4.9,
-        reviews: 156,
-        students: 620,
-        instructorName: 'Michael Chen',
-        instructorImage: 'https://img.freepik.com/free-photo/portrait-professor-work-educational-system_23-2151737187.jpg?semt=ais_hybrid&w=740',
-        features: ['Latest Version', 'Cloud Integration', 'Migration Training', 'Future-Ready Skills', 'Fiori Apps', 'Analytics'],
-        isPopular: false,
-        isNew: true
-      },
-      {
-        id: 4,
-        title: 'SAP BI Platform',
-        description: 'Business Intelligence platform training covering reporting, dashboards, and analytics. Create meaningful insights from data with powerful visualization tools. Master Web Intelligence, Crystal Reports, and Dashboard Builder.',
-        category: 'sap-bi',
-        level: 'Intermediate',
-        duration: '7 weeks',
-        image: 'assets/images/SAP BI Platform.jpg',
-        rating: 4.6,
-        reviews: 298,
-        students: 1420,
-        instructorName: 'Sarah Johnson',
-        instructorImage: 'https://img.freepik.com/free-photo/smiley-teacher-holding-tablet_23-2148668619.jpg?semt=ais_hybrid&w=740',
-        features: ['Reporting Tools', 'Dashboard Creation', 'Data Visualization', 'Analytics', 'Universe Design', 'Performance Optimization'],
-        isPopular: false,
-        isNew: false
-      },
-      {
+       {
         id: 5,
         title: 'Full Stack Web Development',
         description: 'Complete web development course covering frontend and backend technologies. Build modern, responsive web applications using the latest frameworks and tools. Learn HTML5, CSS3, JavaScript, React, Node.js, and database management.',
@@ -180,9 +112,114 @@ export class CoursesComponent implements OnInit {
         isPopular: false,
         isNew: true
       },
+          {
+      id: 20,
+      title: 'Mobile App Development',
+      description: 'Build modern iOS and Android apps using Flutter, React Native, and native SDKs.',
+      category: 'fullstack',
+      level: 'Intermediate',
+      duration: '10 weeks',
+      image: 'assets/images/mobile-development.jpg',
+      rating: 4.8,
+      reviews: 220,
+      students: 720,
+      instructorName: 'Arjun Patel',
+      instructorImage: 'https://randomuser.me/api/portraits/men/80.jpg',
+      features: ['Flutter', 'React Native', 'UI/UX Design', 'APIs'],
+      isPopular: true,
+      isNew: false
+    },
+
+    // 21. AI & ML
+    {
+      id: 21,
+      title: 'Artificial Intelligence & Machine Learning',
+      description: 'Dive into AI algorithms, model training, and deep learning concepts using TensorFlow and PyTorch.',
+      category: 'data-science',
+      level: 'Advanced',
+      duration: '12 weeks',
+      image: 'assets/images/ai-ml.jpg',
+      rating: 4.9,
+      reviews: 310,
+      students: 860,
+      instructorName: 'Dr. Naveen Reddy',
+      instructorImage: 'https://randomuser.me/api/portraits/men/61.jpg',
+      features: ['Neural Networks', 'Deep Learning', 'NLP', 'Model Deployment'],
+      isPopular: true,
+      isNew: true
+    },
+      {
+        id: 1,
+        title: 'SAP Financial Accounting (FICO) - Coming Soon',
+        description: 'Master SAP FICO module with comprehensive training on financial processes and accounting. Learn to handle financial transactions, create financial reports, and manage accounting processes efficiently. This course covers all aspects of financial accounting including general ledger, accounts payable, accounts receivable, and asset accounting.',
+        category: 'sap-erp',
+        level: 'Intermediate',
+        duration: '8 weeks',
+        image: 'assets/images/SAP Financial Accounting (FICO).jpg',
+        rating: 4.8,
+        reviews: 234,
+        students: 1250,
+        instructorName: 'Dr. Rajesh Kumar',
+        instructorImage: 'https://media.istockphoto.com/id/2160473960/photo/happy-satisfied-math-teacher-in-elementary-class.jpg?s=612x612&w=0&k=20&c=zaosJRQ0l2dBIjy-DLc5wAFdONtg-_78Q-FIzxjjIoo=',
+        features: ['Live Projects', 'Certification', 'Job Support', 'Expert Guidance', 'Real-time Scenarios', 'Interview Preparation'],
+        isPopular: true,
+        isNew: false
+      },
+      {
+        id: 2,
+        title: 'SAP Material Management (MM) - Coming Soon',
+        description: 'Learn procurement processes, inventory management, and vendor management in SAP MM. Understand purchase orders, goods receipt, and invoice verification processes. Cover material requirements planning, vendor evaluation, and procurement cycle management.',
+        category: 'sap-erp',
+        level: 'Beginner',
+        duration: '6 weeks',
+        image: 'https://admin.ducatindia.com/tutorial/technology/1715000293724SAP%20MM.png',
+        rating: 4.7,
+        reviews: 189,
+        students: 850,
+        instructorName: 'Priya Sharma',
+        instructorImage: 'https://media.istockphoto.com/id/1310208267/photo/portrait-of-indian-woman-as-a-teacher-in-sari-standing-isolated-over-white-background-stock.jpg?s=612x612&w=0&k=20&c=UpkNhqazjP4CNvndwC_Qus1SwAEc1ogPOGpIDmWd4bk=',
+        features: ['Hands-on Training', 'Real-time Projects', 'Industry Expert', 'Practical Labs', 'Case Studies', 'Best Practices'],
+        isPopular: false,
+        isNew: false
+      },
+      {
+        id: 3,
+        title: 'SAP S/4 HANA Financial Accounting - Coming Soon',
+        description: 'Advanced S/4 HANA finance module covering new functionalities and simplified processes. Experience the next-generation ERP with in-memory computing capabilities. Learn about universal journal, central finance, and embedded analytics.',
+        category: 'sap-s4hana',
+        level: 'Advanced',
+        duration: '10 weeks',
+        image: 'assets/images/SAP S4 HANA Financial Accounting.jpg',
+        rating: 4.9,
+        reviews: 156,
+        students: 620,
+        instructorName: 'Michael Chen',
+        instructorImage: 'https://img.freepik.com/free-photo/portrait-professor-work-educational-system_23-2151737187.jpg?semt=ais_hybrid&w=740',
+        features: ['Latest Version', 'Cloud Integration', 'Migration Training', 'Future-Ready Skills', 'Fiori Apps', 'Analytics'],
+        isPopular: false,
+        isNew: true
+      },
+      {
+        id: 4,
+        title: 'SAP BI Platform - Coming Soon',
+        description: 'Business Intelligence platform training covering reporting, dashboards, and analytics. Create meaningful insights from data with powerful visualization tools. Master Web Intelligence, Crystal Reports, and Dashboard Builder.',
+        category: 'sap-bi',
+        level: 'Intermediate',
+        duration: '7 weeks',
+        image: 'assets/images/SAP BI Platform.jpg',
+        rating: 4.6,
+        reviews: 298,
+        students: 1420,
+        instructorName: 'Sarah Johnson',
+        instructorImage: 'https://img.freepik.com/free-photo/smiley-teacher-holding-tablet_23-2148668619.jpg?semt=ais_hybrid&w=740',
+        features: ['Reporting Tools', 'Dashboard Creation', 'Data Visualization', 'Analytics', 'Universe Design', 'Performance Optimization'],
+        isPopular: false,
+        isNew: false
+      },
+     
        {
       id: 9,
-      title: 'SAP Management Accounting (CO)',
+      title: 'SAP Management Accounting (CO) - Coming Soon',
       description: 'Understand internal reporting, controlling, and cost analysis in SAP CO. Learn cost centers, internal orders, and profitability analysis.',
       category: 'sap-erp',
       level: 'Intermediate',
@@ -201,7 +238,7 @@ export class CoursesComponent implements OnInit {
     // 10. Production Planning
     {
       id: 10,
-      title: 'SAP Production Planning (PP)',
+      title: 'SAP Production Planning (PP) - Coming Soon',
       description: 'Master the SAP PP module to manage manufacturing processes, BOM, and work centers. Optimize production schedules and material planning.',
       category: 'sap-erp',
       level: 'Intermediate',
@@ -220,7 +257,7 @@ export class CoursesComponent implements OnInit {
     // 11. Sales & Distribution
     {
       id: 11,
-      title: 'SAP Sales and Distribution (SD)',
+      title: 'SAP Sales and Distribution (SD) - Coming Soon',
       description: 'Learn SAP SD module to manage customer orders, shipping, billing, and pricing. Handle sales processes efficiently.',
       category: 'sap-erp',
       level: 'Beginner',
@@ -239,7 +276,7 @@ export class CoursesComponent implements OnInit {
     // 12. Human Capital Management
     {
       id: 12,
-      title: 'SAP Human Capital Management (HCM)',
+      title: 'SAP Human Capital Management (HCM) - Coming Soon',
       description: 'Manage employee lifecycle, payroll, and time tracking in SAP HCM. Learn organizational management and HR reporting.',
       category: 'sap-erp',
       level: 'Intermediate',
@@ -258,7 +295,7 @@ export class CoursesComponent implements OnInit {
     // 13. SAP ABAP
     {
       id: 13,
-      title: 'SAP ABAP Programming',
+      title: 'SAP ABAP Programming - Coming Soon',
       description: 'Learn ABAP/4 programming language to develop custom SAP applications and reports. Explore modularization, reports, and debugging.',
       category: 'sap-erp',
       level: 'Advanced',
@@ -277,7 +314,7 @@ export class CoursesComponent implements OnInit {
     // 14. Plant Maintenance
     {
       id: 14,
-      title: 'SAP Plant Maintenance (PM)',
+      title: 'SAP Plant Maintenance (PM) - Coming Soon',
       description: 'Understand maintenance planning, task lists, and breakdown management in SAP PM.',
       category: 'sap-erp',
       level: 'Intermediate',
@@ -296,7 +333,7 @@ export class CoursesComponent implements OnInit {
     // 15. Quality Management
     {
       id: 15,
-      title: 'SAP Quality Management (QM)',
+      title: 'SAP Quality Management (QM) - Coming Soon',
       description: 'Control product quality with inspection, audit, and certification tools in SAP QM.',
       category: 'sap-erp',
       level: 'Intermediate',
@@ -315,7 +352,7 @@ export class CoursesComponent implements OnInit {
     // 16. Warehouse Management
     {
       id: 16,
-      title: 'SAP Warehouse Management (WM)',
+      title: 'SAP Warehouse Management (WM) - Coming Soon',
       description: 'Streamline inventory tracking, bin management, and warehouse activities using SAP WM.',
       category: 'sap-erp',
       level: 'Intermediate',
@@ -353,7 +390,7 @@ export class CoursesComponent implements OnInit {
     // 18. Crystal Report
     {
       id: 18,
-      title: 'SAP Crystal Reports',
+      title: 'SAP Crystal Reports - Coming Soon',
       description: 'Design interactive, powerful reports with SAP Crystal Reports. Learn data connection, formatting, and delivery.',
       category: 'sap-bi',
       level: 'Intermediate',
@@ -372,7 +409,7 @@ export class CoursesComponent implements OnInit {
     // 19. Success Factor Training
     {
       id: 19,
-      title: 'SAP SuccessFactors Training',
+      title: 'SAP SuccessFactors Training - Coming Soon',
       description: 'Master cloud-based HR management with SAP SuccessFactors. Learn talent management, recruiting, and onboarding modules.',
       category: 'sap-clouds-solution',
       level: 'Intermediate',
@@ -389,61 +426,26 @@ export class CoursesComponent implements OnInit {
     },
 
     // 20. Mobile Development
-    {
-      id: 20,
-      title: 'Mobile App Development',
-      description: 'Build modern iOS and Android apps using Flutter, React Native, and native SDKs.',
-      category: 'fullstack',
-      level: 'Intermediate',
-      duration: '10 weeks',
-      image: 'assets/images/mobile-development.jpg',
-      rating: 4.8,
-      reviews: 220,
-      students: 720,
-      instructorName: 'Arjun Patel',
-      instructorImage: 'https://randomuser.me/api/portraits/men/80.jpg',
-      features: ['Flutter', 'React Native', 'UI/UX Design', 'APIs'],
-      isPopular: true,
-      isNew: false
-    },
 
-    // 21. AI & ML
-    {
-      id: 21,
-      title: 'Artificial Intelligence & Machine Learning',
-      description: 'Dive into AI algorithms, model training, and deep learning concepts using TensorFlow and PyTorch.',
-      category: 'data-science',
-      level: 'Advanced',
-      duration: '12 weeks',
-      image: 'assets/images/ai-ml.jpg',
-      rating: 4.9,
-      reviews: 310,
-      students: 860,
-      instructorName: 'Dr. Naveen Reddy',
-      instructorImage: 'https://randomuser.me/api/portraits/men/61.jpg',
-      features: ['Neural Networks', 'Deep Learning', 'NLP', 'Model Deployment'],
-      isPopular: true,
-      isNew: true
-    },
 
     // 22. IoT Development
-    {
-      id: 22,
-      title: 'IoT Development & Integration',
-      description: 'Design and implement smart systems with sensors, microcontrollers, and cloud-based dashboards using IoT protocols.',
-      category: 'iot',
-      level: 'Intermediate',
-      duration: '8 weeks',
-      image: 'assets/images/iot-course.jpg',
-      rating: 4.6,
-      reviews: 150,
-      students: 500,
-      instructorName: 'Kiran Joshi',
-      instructorImage: 'https://randomuser.me/api/portraits/men/52.jpg',
-      features: ['MQTT', 'ESP32/Arduino', 'Sensor Integration', 'IoT Cloud'],
-      isPopular: false,
-      isNew: false
-    }
+    // {
+    //   id: 22,
+    //   title: 'IoT Development & Integration',
+    //   description: 'Design and implement smart systems with sensors, microcontrollers, and cloud-based dashboards using IoT protocols.',
+    //   category: 'iot',
+    //   level: 'Intermediate',
+    //   duration: '8 weeks',
+    //   image: 'assets/images/iot-course.jpg',
+    //   rating: 4.6,
+    //   reviews: 150,
+    //   students: 500,
+    //   instructorName: 'Kiran Joshi',
+    //   instructorImage: 'https://randomuser.me/api/portraits/men/52.jpg',
+    //   features: ['MQTT', 'ESP32/Arduino', 'Sensor Integration', 'IoT Cloud'],
+    //   isPopular: false,
+    //   isNew: false
+    // }
   ];
 }
   

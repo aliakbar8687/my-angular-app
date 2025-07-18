@@ -41,50 +41,57 @@
 <!-- Update the table to use paginatedEnquiries instead of filteredEnquiries -->
 <div class="table-container" *ngIf="!isLoading">
   <table class="enquiries-table">
-    <thead>
-      <tr>
-        <!-- <th>ID</th> -->
-        <th>Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-        <th>Graduation Year</th>
-        <th>Experience</th>
-        <th>State</th>
-        <th>City</th>
-
-        <!-- <th>Agreed to Terms</th> -->
-        <th>Submitted</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let enquiry of paginatedEnquiries">
-        <!-- <td>{{ enquiry.id }}</td> -->
-        <td>{{ enquiry.fullName }}</td>
-        <td>{{ enquiry.email }}</td>
-        <td>{{ enquiry.mobileNumber }}</td>
-        <td>{{ enquiry.graduationYear }}</td>
-        <td>
-          <span *ngIf="enquiry.experience === 'fresher'">Fresher</span>
-          <span *ngIf="enquiry.experience === '1'">1 Year</span>
-          <span *ngIf="enquiry.experience === '2'">2 Years</span>
-          <span *ngIf="enquiry.experience === '3'">3 Years</span>
-          <span *ngIf="enquiry.experience === '4'">4 Years</span>
-          <span *ngIf="enquiry.experience === '5'">5 Years</span>
-          <span *ngIf="enquiry.experience === '6+'">6+ Years</span>
-        </td>
-        <td>{{ enquiry.stateName }}</td>
-        <td>{{ enquiry.cityName }}</td>
-
-        <!-- <td>{{ enquiry.agreeToTerms ? 'Yes' : 'No' }}</td> -->
-        <td>{{ enquiry.created_at | date:'medium' }}</td>
-        <td>
-          <button class="delete-btn" (click)="deleteEnquiry(enquiry.id)">
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
+<thead>
+  <tr>
+    <!-- <th>ID</th> -->
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Graduation Year</th>
+    <th>Experience</th>
+    <th>Preferred Course</th>
+    <th>State</th>
+    <th>City</th>
+    <!-- <th>Agreed to Terms</th> -->
+    <th>Submitted</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let enquiry of paginatedEnquiries">
+    <!-- <td>{{ enquiry.id }}</td> -->
+    <td>{{ enquiry.fullName }}</td>
+    <td>{{ enquiry.email }}</td>
+    <td>{{ enquiry.mobileNumber }}</td>
+    <td>{{ enquiry.graduationYear }}</td>
+    <td>
+      <span *ngIf="enquiry.experience === 'fresher'">Fresher</span>
+      <span *ngIf="enquiry.experience === '1'">1 Year</span>
+      <span *ngIf="enquiry.experience === '2'">2 Years</span>
+      <span *ngIf="enquiry.experience === '3'">3 Years</span>
+      <span *ngIf="enquiry.experience === '4'">4 Years</span>
+      <span *ngIf="enquiry.experience === '5'">5 Years</span>
+      <span *ngIf="enquiry.experience === '6+'">6+ Years</span>
+    </td>
+    <td>
+      <span *ngIf="enquiry.preferredCourse === 'full-stack-development'">Full Stack Development</span>
+      <span *ngIf="enquiry.preferredCourse === 'data-science-and-analytics'">Data Science and Analytics</span>
+      <span *ngIf="enquiry.preferredCourse === 'cloud'">Cloud</span>
+      <span *ngIf="enquiry.preferredCourse === 'cyber-security'">Cyber Security</span>
+      <span *ngIf="enquiry.preferredCourse === 'sap-coming-soon'">SAP - Coming Soon</span>
+      <span *ngIf="!enquiry.preferredCourse">N/A</span>
+    </td>
+    <td>{{ enquiry.stateName }}</td>
+    <td>{{ enquiry.cityName }}</td>
+    <!-- <td>{{ enquiry.agreeToTerms ? 'Yes' : 'No' }}</td> -->
+    <td>{{ enquiry.created_at | date:'medium' }}</td>
+    <td>
+      <button class="delete-btn" (click)="deleteEnquiry(enquiry.id)">
+        Delete
+      </button>
+    </td>
+  </tr>
+</tbody>
   </table>
 
   <!-- Add pagination controls -->

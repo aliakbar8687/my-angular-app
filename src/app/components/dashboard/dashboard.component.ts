@@ -61,6 +61,7 @@ onSearch(): void {
       enquiry.mobileNumber?.toString().includes(searchLower) ||
       enquiry.graduationYear?.toString().includes(searchLower) ||
       enquiry.experience?.toLowerCase().includes(searchLower) ||
+      enquiry.preferredCourse?.toLowerCase().includes(searchLower) ||
       enquiry.stateName?.toLowerCase().includes(searchLower) ||
       enquiry.cityName?.toLowerCase().includes(searchLower) ||
       enquiry.id?.toString().includes(searchLower)
@@ -72,40 +73,41 @@ onSearch(): void {
   this.updatePagination();
 }
 
-  exportToExcel(): void {
-    if (this.filteredEnquiries.length === 0) {
-      alert('No data to export');
-      return;
-    }
-
-    // Prepare data for export
-    const exportData = this.filteredEnquiries.map(enquiry => ({
-      'ID': enquiry.id,
-      'Full Name': enquiry.fullName,
-      'Email': enquiry.email,
-      'Mobile Number': enquiry.mobileNumber,
-      'Graduation Year': enquiry.graduationYear,
-      'Experience': this.getExperienceText(enquiry.experience),
-      'State': enquiry.stateName,
-      'City': enquiry.cityName,
-      'Agreed to Terms': enquiry.agreeToTerms ? 'Yes' : 'No',
-      'Submitted Date': new Date(enquiry.created_at).toLocaleDateString()
-    }));
-
-    // Create workbook and worksheet
-    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(exportData);
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    
-    // Add worksheet to workbook
-    XLSX.utils.book_append_sheet(wb, ws, 'Enquiries');
-
-    // Generate filename with current date
-    const currentDate = new Date().toISOString().split('T')[0];
-    const filename = `enquiries_${currentDate}.xlsx`;
-
-    // Save the file
-    XLSX.writeFile(wb, filename);
+exportToExcel(): void {
+  if (this.filteredEnquiries.length === 0) {
+    alert('No data to export');
+    return;
   }
+
+  // Prepare data for export
+  const exportData = this.filteredEnquiries.map(enquiry => ({
+    'ID': enquiry.id,
+    'Full Name': enquiry.fullName,
+    'Email': enquiry.email,
+    'Mobile Number': enquiry.mobileNumber,
+    'Graduation Year': enquiry.graduationYear,
+    'Experience': this.getExperienceText(enquiry.experience),
+    'Preferred Course': this.getPreferredCourseText(enquiry.preferredCourse),
+    'State': enquiry.stateName,
+    'City': enquiry.cityName,
+    'Agreed to Terms': enquiry.agreeToTerms ? 'Yes' : 'No',
+    'Submitted Date': new Date(enquiry.created_at).toLocaleDateString()
+  }));
+
+  // Create workbook and worksheet
+  const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(exportData);
+  const wb: XLSX.WorkBook = XLSX.utils.book_new();
+  
+  // Add worksheet to workbook
+  XLSX.utils.book_append_sheet(wb, ws, 'Enquiries');
+
+  // Generate filename with current date
+  const currentDate = new Date().toISOString().split('T')[0];
+  const filename = `enquiries_${currentDate}.xlsx`;
+
+  // Save the file
+  XLSX.writeFile(wb, filename);
+}
 
   private getExperienceText(experience: string): string {
     switch (experience) {
@@ -119,7 +121,16 @@ onSearch(): void {
       default: return experience;
     }
   }
-
+private getPreferredCourseText(preferredCourse: string): string {
+  switch (preferredCourse) {
+    case 'full-stack-development': return 'Full Stack Development';
+    case 'data-science-and-analytics': return 'Data Science and Analytics';
+    case 'cloud': return 'Cloud';
+    case 'cyber-security': return 'Cyber Security';
+    case 'sap-coming-soon': return 'SAP - Coming Soon';
+    default: return preferredCourse || 'N/A';
+  }
+}
  updatePagination(): void {
   this.totalItems = this.filteredEnquiries.length;
   this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
